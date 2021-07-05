@@ -21,7 +21,7 @@ namespace Models.Entities
         public virtual ICollection<GroupUser> GroupUsers { get; set; }
         public virtual ICollection<Message> MessagesSent { get; set; }
         public virtual ICollection<Message> MessagesReceived { get; set; }
-        public virtual ICollection<Friend> Friends { get; set; }
+        public virtual ICollection<Colleague> Colleagues { get; set; }
         public virtual ICollection<UserStateHistory> UserStatesHistory { get; set; }
 
         public User()
@@ -30,7 +30,7 @@ namespace Models.Entities
             GroupUsers = new List<GroupUser>();
             MessagesSent = new List<Message>();
             MessagesReceived = new List<Message>();
-            Friends = new List<Friend>();
+            Colleagues = new List<Colleague>();
             UserStatesHistory = new List<UserStateHistory>();
         }
     }
