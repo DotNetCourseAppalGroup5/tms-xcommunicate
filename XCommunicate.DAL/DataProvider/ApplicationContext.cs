@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Models.Entities;
+using System.Data.Entity;
 
 namespace DataProvider
 {
-    public class ApplicationContext
+    public class ApplicationContext : DbContext
     {
+        public DbSet<GroupRole> GroupRoles { get; set; }
     }
 }
