@@ -11,6 +11,5 @@ namespace Models.Entities
 
         [Key, Column(Order = 1)]
         public int ColleaguesId { get; set; }
-        public virtual User Colleagues { get; set; }
     }
 }
