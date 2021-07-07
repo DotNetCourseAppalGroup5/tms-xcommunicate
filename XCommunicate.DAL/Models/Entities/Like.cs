@@ -6,12 +6,10 @@ namespace Models.Entities
     public class Like
     {
         [Key, Column(Order = 0)]
-        [ForeignKey("User")]
         public int UserId { get; set; }
         public virtual User User { get; set; }
 
         [Key, Column(Order = 1)]
-        [ForeignKey("Entity")]
         public int EntityId { get; set; }
         public virtual Entity Entity { get; set; }
     }
