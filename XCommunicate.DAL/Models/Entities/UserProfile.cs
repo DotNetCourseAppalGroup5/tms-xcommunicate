@@ -29,6 +29,8 @@ namespace Models.Entities
 
         public string Avatar { get; set; }
 
+        public string AvatarFullSize { get; set; }
+
         public User User { get; set; }
     }
 }

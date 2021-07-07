@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Repositories.Interfaces
 {
-    public interface IGenericRepository<TEntity> where TEntity : class
+    public interface IRepository<TEntity> where TEntity : class
     {
         void AddEntity(TEntity entity);
         TEntity GetById(int id);

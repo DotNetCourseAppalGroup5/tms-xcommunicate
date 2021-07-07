@@ -3,12 +3,12 @@ using System.Data.Entity;
 
 namespace Repositories.Repos
 {
-    public class InitializingGenericRepo<TEntity> : IInitializingGenericRepository<TEntity> where TEntity : class
+    public class InitializingRepo<TEntity> : IInitializingRepository<TEntity> where TEntity : class
     {
         DbContext _dbContext;
         DbSet<TEntity> _dbSet;
 
-        public InitializingGenericRepo(DbContext dbContext)
+        public InitializingRepo(DbContext dbContext)
         {
             _dbContext = dbContext;
             _dbSet = dbContext.Set<TEntity>();

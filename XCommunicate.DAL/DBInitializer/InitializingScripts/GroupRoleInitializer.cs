@@ -12,7 +12,7 @@ namespace DBInitializer.InitializingScripts
             GroupRole adminRole = new GroupRole() { Name = "Admin" };
             GroupRole userRole = new GroupRole() { Name = "User" };
 
-            InitializingGenericRepo<GroupRole> groupRoleRepo = new InitializingGenericRepo<GroupRole>(new ApplicationContext());
+            InitializingRepo<GroupRole> groupRoleRepo = new InitializingRepo<GroupRole>(new ApplicationContext());
 
             groupRoleRepo.Create(ownerRole, adminRole, userRole);
         }

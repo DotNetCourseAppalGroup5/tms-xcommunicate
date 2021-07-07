@@ -14,6 +14,10 @@ namespace Models.Entities
         public string Name { get; set; }
         
         public string GroupDescription { get; set; }
+
+        public string GroupAvatar { get; set; }
+
+        public string GroupAvatarFullSize { get; set; }
         
         public bool IsPrivate { get; set; }
 

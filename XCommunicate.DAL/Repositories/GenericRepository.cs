@@ -5,7 +5,7 @@ using System.Data.Entity;
 
 namespace Repositories
 {
-    public class GenericRepository<TEntity> : IGenericRepository<TEntity> where TEntity : class
+    public class GenericRepository<TEntity> : IRepository<TEntity> where TEntity : class
     {
         DbContext _dbContext;
         DbSet<TEntity> _dbSet;

@@ -13,7 +13,7 @@ namespace Models.Entities
         [MaxLength(15)]
         public string Name { get; set; }
 
-        public ICollection<UserStateHistory> States { get; set; }
+        public virtual ICollection<UserStateHistory> States { get; set; }
 
         public UserState()
         {
