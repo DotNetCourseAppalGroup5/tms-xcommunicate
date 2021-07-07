@@ -10,11 +10,15 @@ namespace Models.Entities
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
+        [MaxLength(50)]
         public string Name { get; set; }
+        
         public string GroupDescription { get; set; }
+        
         public bool IsPrivate { get; set; }
 
         public virtual ICollection<Entity> Entities { get; set; }
+        
         public virtual ICollection<GroupUser> GroupUsers { get; set; }
 
         public Group()

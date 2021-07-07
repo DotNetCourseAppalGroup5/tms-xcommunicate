@@ -12,11 +12,13 @@ namespace Models.Entities
         public int Id { get; set; }
 
         public int UserId { get; set; }
+        
+        public int UserStateId { get; set; }
+        
+        public DateTime StateUpdate { get; set; }
+
         public virtual User User { get; set; }
 
-        public int UserStateId { get; set; }
         public virtual UserState UserState { get; set; }
-
-        public DateTime StateUpdate { get; set; }
     }
 }

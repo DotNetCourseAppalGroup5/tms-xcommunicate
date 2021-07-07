@@ -10,9 +10,15 @@ namespace Models.Entities
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         
+        [MaxLength(20)]
         public string Name { get; set; }
+        
         public bool IsActive { get; set; }
+        
+        [MaxLength(20)]
         public string Password { get; set; }
+        
+        [MaxLength(50)]
         public string EmailAddress { get; set; }
 
         public UserProfile Profile { get; set; }

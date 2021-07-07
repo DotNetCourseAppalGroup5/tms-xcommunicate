@@ -10,6 +10,7 @@ namespace Models.Entities
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
+        [MaxLength(15)]
         public string Name { get; set; }
 
         public ICollection<UserStateHistory> States { get; set; }

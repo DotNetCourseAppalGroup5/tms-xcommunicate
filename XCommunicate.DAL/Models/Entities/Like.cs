@@ -7,10 +7,12 @@ namespace Models.Entities
     {
         [Key, Column(Order = 0)]
         public int UserId { get; set; }
-        public virtual User User { get; set; }
-
+        
         [Key, Column(Order = 1)]
         public int EntityId { get; set; }
+        
+        public virtual User User { get; set; }
+
         public virtual Entity Entity { get; set; }
     }
 }

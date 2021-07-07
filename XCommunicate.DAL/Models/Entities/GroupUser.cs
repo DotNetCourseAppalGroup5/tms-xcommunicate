@@ -7,13 +7,16 @@ namespace Models.Entities
     {
         [Key, Column(Order = 0)]
         public int UserId { get; set; }
-        public virtual User User { get; set; }
-
+        
         [Key, Column(Order = 1)]
         public int GroupId { get; set; }
-        public virtual Group Group { get; set; }
 
         public int RoleId { get; set; }
+
+        public virtual User User { get; set; }
+
+        public virtual Group Group { get; set; }
+
         public virtual GroupRole Role { get; set; }
     }
 }

@@ -11,12 +11,17 @@ namespace Models.Entities
         public int Id { get; set; }
 
         public int UserId { get; set; }
-        public virtual User User { get; set; }
-
+        
+        [MaxLength(50)]
         public string EmailAddress { get; set; }
-
+        
         public DateTime CreatedAt { get; set; }
+        
+        [MaxLength(6)]
         public string Code { get; set; }
+        
         public bool IsConfirmed { get; set; }
+
+        public virtual User User { get; set; }
     }
 }

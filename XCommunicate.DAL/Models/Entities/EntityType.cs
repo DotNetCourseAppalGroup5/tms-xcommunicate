@@ -10,6 +10,7 @@ namespace Models.Entities
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
+        [MaxLength(30)]
         public string Name { get; set; }
 
         public virtual ICollection<Entity> Entities { get; set; }
