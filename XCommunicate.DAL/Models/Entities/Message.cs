@@ -11,9 +11,9 @@ namespace Models.Entities
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
-        public int FromUserId { get; set; }
+        public int? FromUserId { get; set; }
         
-        public int ToUserId { get; set; }
+        public int? ToUserId { get; set; }
         
         public string Content { get; set; }
         

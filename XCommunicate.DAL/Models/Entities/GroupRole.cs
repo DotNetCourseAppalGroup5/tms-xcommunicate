@@ -11,6 +11,7 @@ namespace Models.Entities
         public int Id { get; set; }
 
         [MaxLength(10)]
+        [Index(IsUnique = true)]
         public string Name { get; set; }
 
         public virtual ICollection<GroupUser> GroupUsers { get; set; }

@@ -10,7 +10,7 @@ namespace Models.Entities
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
-        public int UserId { get; set; }
+        public int? UserId { get; set; }
         
         [MaxLength(50)]
         public string EmailAddress { get; set; }

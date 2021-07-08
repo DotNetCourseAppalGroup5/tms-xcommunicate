@@ -11,6 +11,7 @@ namespace Models.Entities
         public int Id { get; set; }
 
         [MaxLength(30)]
+        [Index(IsUnique = true)]
         public string Name { get; set; }
 
         public virtual ICollection<Entity> Entities { get; set; }

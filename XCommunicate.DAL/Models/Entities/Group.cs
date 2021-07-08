@@ -11,6 +11,7 @@ namespace Models.Entities
         public int Id { get; set; }
 
         [MaxLength(50)]
+        [Index(IsUnique = true)]
         public string Name { get; set; }
         
         public string GroupDescription { get; set; }

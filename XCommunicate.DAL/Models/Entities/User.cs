@@ -9,20 +9,22 @@ namespace Models.Entities
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        
+
         [MaxLength(20)]
+        [Index(IsUnique = true)]
         public string Name { get; set; }
-        
+
         public bool IsActive { get; set; }
-        
+
         [MaxLength(20)]
         public string Password { get; set; }
-        
+
         [MaxLength(50)]
+        [Index(IsUnique = true)]
         public string EmailAddress { get; set; }
 
         public UserProfile Profile { get; set; }
-        
+
         public virtual ICollection<Entity> Entities { get; set; }
         public virtual ICollection<GroupUser> GroupUsers { get; set; }
         public virtual ICollection<Colleague> Colleagues { get; set; }
