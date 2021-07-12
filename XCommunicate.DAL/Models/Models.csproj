@@ -64,6 +64,9 @@
     <Compile Include="Entities\UserProfile.cs" />
     <Compile Include="Entities\UserState.cs" />
     <Compile Include="Entities\UserStateHistory.cs" />
+    <Compile Include="ModelConfiguration\GroupConfiguration.cs" />
+    <Compile Include="ModelConfiguration\GroupRoleConfiguration.cs" />
+    <Compile Include="ModelConfiguration\GroupUserConfiguration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

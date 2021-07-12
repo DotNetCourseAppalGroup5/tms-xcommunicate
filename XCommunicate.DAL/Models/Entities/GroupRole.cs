@@ -7,18 +7,8 @@ namespace Models.Entities
     public class GroupRole
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-
-        [MaxLength(10)]
-        [Index(IsUnique = true)]
         public string Name { get; set; }
-
-        public virtual ICollection<GroupUser> GroupUsers { get; set; }
-
-        public GroupRole()
-        {
-            GroupUsers = new List<GroupUser>();
-        }
+        public virtual List<GroupUser> GroupUsers { get; set; }
     }
 }
