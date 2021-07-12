@@ -5,6 +5,8 @@ namespace DataProvider
 {
     public class ApplicationContext : DbContext
     {
-        public DbSet<GroupRole> GroupRoles { get; set; }
+        public ApplicationContext() : base("DefaultConnection") // проверить строку подключения
+        { }
+        public DbSet<Group> Groups { get; set; }
     }
 }

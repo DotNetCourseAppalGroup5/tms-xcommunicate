@@ -1,23 +1,17 @@
-﻿using Services.Interfaces;
+﻿
+using DataProvider;
 using Models.Entities;
+using System.Linq;
 
 namespace Services.Services
 {
-    public class GroupService : IGroupService
+    public class GroupService
     {
-        public bool Create()
-        {
-            throw new System.NotImplementedException();
-        }
+        private readonly ApplicationContext _dbContext;
 
-        public void Delete(int groupId)
+        public bool IsUnique(Group group)
         {
-            throw new System.NotImplementedException();
-        }
-
-        public void Update(Group group)
-        {
-            throw new System.NotImplementedException();
+            return _dbContext.Groups.Any(c => c.Name == group.Name);
         }
     }
 }
