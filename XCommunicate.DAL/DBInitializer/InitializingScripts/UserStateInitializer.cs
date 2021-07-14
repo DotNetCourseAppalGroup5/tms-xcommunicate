@@ -13,7 +13,8 @@ namespace DBInitializer.InitializingScripts
 
             InitializingRepo<UserState> userStateRepo = new InitializingRepo<UserState>(new ApplicationContext());
 
-            userStateRepo.Create(activeState, deactivatedState);
+            userStateRepo.AddEntity(activeState);
+            userStateRepo.AddEntity(deactivatedState);
         }
     }
 }

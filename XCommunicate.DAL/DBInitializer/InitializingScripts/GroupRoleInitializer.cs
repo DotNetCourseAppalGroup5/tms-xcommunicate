@@ -14,7 +14,9 @@ namespace DBInitializer.InitializingScripts
 
             InitializingRepo<GroupRole> groupRoleRepo = new InitializingRepo<GroupRole>(new ApplicationContext());
 
-            groupRoleRepo.Create(ownerRole, adminRole, userRole);
+            groupRoleRepo.AddEntity(ownerRole);
+            groupRoleRepo.AddEntity(adminRole);
+            groupRoleRepo.AddEntity(userRole);
         }
     }
 }

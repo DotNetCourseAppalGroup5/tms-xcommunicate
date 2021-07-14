@@ -13,7 +13,8 @@ namespace DBInitializer.InitializingScripts
 
             InitializingRepo<EntityType> entityTypeRepo = new InitializingRepo<EntityType>(new ApplicationContext());
 
-            entityTypeRepo.Create(post, comment);
+            entityTypeRepo.AddEntity(post);
+            entityTypeRepo.AddEntity(comment);
         }
     }
 }
