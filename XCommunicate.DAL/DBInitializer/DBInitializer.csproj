@@ -53,9 +53,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="InitializingScripts\EntityTypeInitializer.cs" />
-    <Compile Include="InitializingScripts\GroupRoleInitializer.cs" />
-    <Compile Include="InitializingScripts\UserStateInitializer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

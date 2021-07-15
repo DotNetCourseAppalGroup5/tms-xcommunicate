@@ -1,32 +1,47 @@
-﻿using Repositories.Interfaces;
+﻿using DataProvider;
+using Repositories.Interfaces;
+using System;
+using System.Collections.Generic;
 using System.Data.Entity;
+using System.Linq;
 
 namespace Repositories.Repos
 {
-    public class InitializingRepo<TEntity> : IInitializingRepository<TEntity> where TEntity : class
+    public class InitializingRepo<TEntity> : IGenericRepository<TEntity> where TEntity : class
     {
-        DbContext _dbContext;
-        DbSet<TEntity> _dbSet;
-
-        public InitializingRepo(DbContext dbContext)
+        private readonly ApplicationContext _dbContext;
+        private readonly DbSet<TEntity> entities;
+        public InitializingRepo(ApplicationContext dbContext)
         {
             _dbContext = dbContext;
-            _dbSet = dbContext.Set<TEntity>();
         }
 
-        public void Create(params TEntity[] entities)
+        public void AddEntity(TEntity entity)
         {
-            foreach (var item in entities)
-                _dbSet.Add(item);
-
+            entities.Add(entity);
             _dbContext.SaveChanges();
         }
 
-        public void Delete(params TEntity[] entities)
+        public void DeleteEntity(int id)
         {
-            foreach (var item in entities)
-                _dbSet.Remove(item);
+            TEntity entity = entities.Find(id);
+            entities.Remove(entity);
+            _dbContext.SaveChanges();
+        }
 
+        public IEnumerable<TEntity> GetAll()
+        {
+            return entities.ToList();
+        }
+
+        public TEntity GetById(int id)
+        {
+            return entities.Find(id);
+        }
+
+        public void UpdateEntity(TEntity entity)
+        {
+            _dbContext.Entry(entity).State = EntityState.Modified;
             _dbContext.SaveChanges();
         }
     }
