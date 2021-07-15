@@ -9,6 +9,6 @@ namespace Repositories.Interfaces
         TEntity GetById(int id);
         IEnumerable<TEntity> GetAll();
         void UpdateEntity(TEntity entity);
-        void DeleteEntity(TEntity entity);
+        void DeleteEntity(int id);
     }
 }

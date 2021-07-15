@@ -1,46 +1,46 @@
-﻿using Repositories.Interfaces;
+﻿using DataProvider;
+using Repositories.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Linq;
 
 namespace Repositories.Repos
 {
     public class InitializingRepo<TEntity> : IGenericRepository<TEntity> where TEntity : class
     {
-        DbContext _dbContext;
-        DbSet<TEntity> _dbSet;
-
-        public InitializingRepo(DbContext dbContext)
+        private readonly ApplicationContext _dbContext;
+        private readonly DbSet<TEntity> entities;
+        public InitializingRepo(ApplicationContext dbContext)
         {
             _dbContext = dbContext;
-            _dbSet = dbContext.Set<TEntity>();
         }
 
         public void AddEntity(TEntity entity)
         {
-            _dbSet.Add(entity);
+            entities.Add(entity);
             _dbContext.SaveChanges();
         }
 
-        public void DeleteEntity(TEntity entity)
+        public void DeleteEntity(int id)
         {
-            _dbSet.Remove(entity);
-            _dbContext.SaveChanges();
+            TEntity entity = entities.Find(id);
+            entities.Remove(entity);
         }
 
         public IEnumerable<TEntity> GetAll()
         {
-            throw new NotImplementedException();
+            return entities.ToList();
         }
 
         public TEntity GetById(int id)
         {
-            throw new NotImplementedException();
+            return entities.Find(id);
         }
 
         public void UpdateEntity(TEntity entity)
         {
-            throw new NotImplementedException();
+            _dbContext.Entry(entity).State = EntityState.Modified;
         }
     }
 }
