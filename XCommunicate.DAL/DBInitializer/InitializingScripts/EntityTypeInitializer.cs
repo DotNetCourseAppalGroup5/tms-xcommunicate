@@ -1,19 +1,19 @@
-﻿using DataProvider;
-using Models.Entities;
-using Repositories.Repos;
+﻿//using DataProvider;
+//using Models.Entities;
+//using Repositories.Repos;
 
-namespace DBInitializer.InitializingScripts
-{
-    class EntityTypeInitializer
-    {
-        internal static void Initialize()
-        {
-            EntityType post = new EntityType() { Name = "Post" };
-            EntityType comment = new EntityType() { Name = "Comment" };
+//namespace DBInitializer.InitializingScripts
+//{
+//    class EntityTypeInitializer
+//    {
+//        internal static void Initialize()
+//        {
+//            EntityType post = new EntityType() { Name = "Post" };
+//            EntityType comment = new EntityType() { Name = "Comment" };
 
-            InitializingRepo<EntityType> entityTypeRepo = new InitializingRepo<EntityType>(new ApplicationContext());
+//            InitializingRepo<EntityType> entityTypeRepo = new InitializingRepo<EntityType>(new ApplicationContext());
 
-            entityTypeRepo.Create(post, comment);
-        }
-    }
-}
+//            entityTypeRepo.Create(post, comment);
+//        }
+//    }
+//}

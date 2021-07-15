@@ -1,19 +1,26 @@
-﻿using EntityFramework.CodeFirst;
+﻿
+using EntityFramework.CodeFirst;
+
 using Models.Entities;
 using Repositories.IGenericRepository;
+using System;
+using System.Collections.Generic;
 using System.Data;
+using System.Linq;
+using System.Web;
 using System.Web.Mvc;
 
-namespace Controllers
+namespace WebApp.Controllers
 {
     public class GroupController : Controller
     {
+        // GET: Group
         private readonly IGenericRepository<Group> _groupRepository;
         private readonly ApplicationContext _dbContext;
 
-        public GroupController(IGenericRepository<Group> companyRepository, ApplicationContext dbContext)
+        public GroupController(IGenericRepository<Group> groupRepository, ApplicationContext dbContext)
         {
-            _groupRepository = companyRepository;
+            _groupRepository = groupRepository;
             _dbContext = dbContext;
         }
 

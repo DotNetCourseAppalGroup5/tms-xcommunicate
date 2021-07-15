@@ -21,6 +21,7 @@ namespace Models.Entities
         //public virtual ICollection<Entity> Entities { get; set; } ???????????
 
         public virtual List<GroupUser> GroupUsers { get; set; }
+     
 
     }
 }

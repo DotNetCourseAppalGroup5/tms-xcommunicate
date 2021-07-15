@@ -1,4 +1,4 @@
-﻿using DataProvider;
+﻿using EntityFramework.CodeFirst;
 using Models.Entities;
 using Repositories.IGenericRepository;
 using System.Collections.Generic;
