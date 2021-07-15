@@ -26,6 +26,7 @@ namespace Repositories.Repos
         {
             TEntity entity = entities.Find(id);
             entities.Remove(entity);
+            _dbContext.SaveChanges();
         }
 
         public IEnumerable<TEntity> GetAll()
@@ -41,6 +42,7 @@ namespace Repositories.Repos
         public void UpdateEntity(TEntity entity)
         {
             _dbContext.Entry(entity).State = EntityState.Modified;
+            _dbContext.SaveChanges();
         }
     }
 }
