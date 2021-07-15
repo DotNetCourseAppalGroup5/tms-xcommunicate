@@ -1,29 +1,18 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
+using System.Security.Claims;
+using System.Threading.Tasks;
 
 namespace Models.Entities
 {
-    public class User
+    public class User : IdentityUser
     {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
-
-        [MaxLength(20)]
-        [Index(IsUnique = true)]
-        public string Name { get; set; }
-
         public bool IsActive { get; set; }
 
-        [MaxLength(20)]
-        public string Password { get; set; }
-
-        [MaxLength(50)]
-        [Index(IsUnique = true)]
-        public string EmailAddress { get; set; }
-
-        public UserProfile Profile { get; set; }
+        public UserProfile userProfile { get; set; }
 
         public virtual ICollection<Entity> Entities { get; set; }
         public virtual ICollection<GroupUser> GroupUsers { get; set; }
@@ -32,6 +21,12 @@ namespace Models.Entities
         public virtual ICollection<UserStateHistory> UserStatesHistory { get; set; }
         public virtual ICollection<Like> Likes { get; set; }
         public virtual ICollection<ConfirmationCode> ConfirmationCodes { get; set; }
+
+        public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<User> manager)
+        {
+            var userIdentity = await manager.CreateIdentityAsync(this, DefaultAuthenticationTypes.ApplicationCookie);
+            return userIdentity;
+        }
 
         public User()
         {
