@@ -37,7 +37,7 @@ namespace Controllers
         [HttpPost]
         public ActionResult Create(Group group)
         {
-            if (ModelState.IsValid )
+            if (!ModelState.IsValid )
             {
                 ViewBag.Message = "Exist";
                 return View(group);

@@ -8,12 +8,12 @@ namespace Models.Entities
     {
         [Key]
         public int Id { get; set; }
+        [Required(ErrorMessage = "Name is required.")]
         public string Name { get; set; }
-
+        [Required(ErrorMessage = "GroupDescription is required.")]
         public string GroupDescription { get; set; }
-
+        [Required(ErrorMessage = "GroupAvatar is required.")]
         public string GroupAvatar { get; set; }
-
         //public string GroupAvatarFullSize { get; set; }   ????????
 
         public bool IsPrivate { get; set; }

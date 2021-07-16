@@ -78,6 +78,10 @@
     <Compile Include="Migrations\202107152303188_crete1.designer.cs">
       <DependentUpon>202107152303188_crete1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202107152357569_v02.cs" />
+    <Compile Include="Migrations\202107152357569_v02.designer.cs">
+      <DependentUpon>202107152357569_v02.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -94,6 +98,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202107152303188_crete1.resx">
       <DependentUpon>202107152303188_crete1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107152357569_v02.resx">
+      <DependentUpon>202107152357569_v02.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
