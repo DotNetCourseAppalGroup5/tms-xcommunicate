@@ -74,13 +74,17 @@
   <ItemGroup>
     <Compile Include="ApplicationContext.cs" />
     <Compile Include="Entities\BaseEntity.cs" />
-    <Compile Include="Migrations\202107152303188_crete1.cs" />
-    <Compile Include="Migrations\202107152303188_crete1.designer.cs">
-      <DependentUpon>202107152303188_crete1.cs</DependentUpon>
+    <Compile Include="Migrations\202107161528354_v1.cs" />
+    <Compile Include="Migrations\202107161528354_v1.designer.cs">
+      <DependentUpon>202107161528354_v1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202107152357569_v02.cs" />
-    <Compile Include="Migrations\202107152357569_v02.designer.cs">
-      <DependentUpon>202107152357569_v02.cs</DependentUpon>
+    <Compile Include="Migrations\202107161555311_addSize.cs" />
+    <Compile Include="Migrations\202107161555311_addSize.designer.cs">
+      <DependentUpon>202107161555311_addSize.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202107161727489_addSize1.cs" />
+    <Compile Include="Migrations\202107161727489_addSize1.designer.cs">
+      <DependentUpon>202107161727489_addSize1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -96,11 +100,14 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202107152303188_crete1.resx">
-      <DependentUpon>202107152303188_crete1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202107161528354_v1.resx">
+      <DependentUpon>202107161528354_v1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202107152357569_v02.resx">
-      <DependentUpon>202107152357569_v02.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202107161555311_addSize.resx">
+      <DependentUpon>202107161555311_addSize.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107161727489_addSize1.resx">
+      <DependentUpon>202107161727489_addSize1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -14,14 +14,14 @@ namespace Models.Entities
         public string GroupDescription { get; set; }
         [Required(ErrorMessage = "GroupAvatar is required.")]
         public string GroupAvatar { get; set; }
-        //public string GroupAvatarFullSize { get; set; }   ????????
-
+        public string GroupAvatarFullSize { get; set; }
+        
         public bool IsPrivate { get; set; }
 
         //public virtual ICollection<Entity> Entities { get; set; } ???????????
 
         public virtual List<GroupUser> GroupUsers { get; set; }
-     
+     public int Size { get; set; }
 
     }
 }

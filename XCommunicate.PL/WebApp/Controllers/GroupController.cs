@@ -6,6 +6,7 @@ using Repositories.IGenericRepository;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -42,20 +43,25 @@ namespace WebApp.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create(Group group)
+        public ActionResult Create(Group group, User user)
         {
-            if (!ModelState.IsValid )
+            try
             {
-                ViewBag.Message = "Exist";
-              
-                return View(group);
+                if (ModelState.IsValid)
+                {
+                    _groupRepository.Add(group);
+                    //CountUserAdd(user);
+                    return RedirectToAction("Index");
+                }
+            }
+            catch (DataException)
+            {
+                ModelState.AddModelError("", "Unable to save changes. Try again.");
             }
 
-            else
-            {
-                _groupRepository.Add(group);
-                return RedirectToAction("Index");
-            }
+            return View(group);
+
+            
         }
 
         public ActionResult Edit(int id)
@@ -100,5 +106,13 @@ namespace WebApp.Controllers
             _groupRepository.Delete(id);
             return RedirectToAction("Index");
         }
+        //public void CountUserAdd(User user)
+        //{
+        //    var id = user.Id;
+        //    var group = _dbContext.Groups.Find(id);
+        //    group.Size++;
+        //    _dbContext.Entry(group).State = EntityState.Modified;
+        //    _dbContext.SaveChanges();
+        //}
     }
 }

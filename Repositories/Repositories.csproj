@@ -54,6 +54,7 @@
     <Compile Include="IGenericRepository\IGenericRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\GroupRepository.cs" />
+    <Compile Include="Repositories\UserRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\XCommunicate.DAL\DataProvider\DataProvider.csproj">

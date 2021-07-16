@@ -17,7 +17,9 @@ namespace WebApp
             // it is NOT necessary to register your controllers
             
             container.RegisterType<IGenericRepository<Group>, GroupRepository>();
-            
+            container.RegisterType<IGenericRepository<User>,UserRepository>();
+
+
             DependencyResolver.SetResolver(new UnityDependencyResolver(container));
         }
     }

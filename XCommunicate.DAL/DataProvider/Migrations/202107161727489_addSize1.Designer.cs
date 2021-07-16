@@ -7,13 +7,13 @@ namespace DataProvider.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class crete1 : IMigrationMetadata
+    public sealed partial class addSize1 : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(crete1));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(addSize1));
         
         string IMigrationMetadata.Id
         {
-            get { return "202107152303188_crete1"; }
+            get { return "202107161727489_addSize1"; }
         }
         
         string IMigrationMetadata.Source

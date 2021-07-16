@@ -21,7 +21,13 @@
             @Html.DisplayNameFor(model => model.GroupAvatar)
         </th>
         <th>
+            @Html.DisplayNameFor(model => model.GroupAvatarFullSize)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.IsPrivate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Size)
         </th>
         <th></th>
     </tr>
@@ -38,7 +44,13 @@
             @Html.DisplayFor(modelItem => item.GroupAvatar)
         </td>
         <td>
+            @Html.DisplayFor(modelItem => item.GroupAvatarFullSize)
+        </td>
+        <td>
             @Html.DisplayFor(modelItem => item.IsPrivate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Size)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
