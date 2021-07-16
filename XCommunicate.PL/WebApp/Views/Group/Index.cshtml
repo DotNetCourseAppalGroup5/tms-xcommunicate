@@ -3,61 +3,213 @@
 @{
     ViewBag.Title = "Index";
 }
-
-<h2>Index</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.GroupDescription)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.GroupAvatar)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.GroupAvatarFullSize)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.IsPrivate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Size)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.GroupDescription)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.GroupAvatar)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.GroupAvatarFullSize)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IsPrivate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Size)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-    </tr>
+<style>
+body{margin-top:20px;
+background-color: #eee;
 }
 
-</table>
+
+
+
+
+
+
+.search-result-item {
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 4px
+}
+
+
+
+
+
+
+@@media (min-width:768px) {
+    .search-result-item .image-link {
+        display: inline-block;
+        margin: -20px 0 -20px -20px;
+        float: left;
+        width: 200px;
+        
+
+    }
+}
+
+
+
+    .search-result-item .image {
+        max-width: 80%;
+        border-radius: 100px;
+        border: 3px;
+        margin: 10px 10px 10px 10px
+    }
+
+
+
+.search-result-item+.search-result-item {
+    margin-top: 20px
+}
+
+@@media (min-width:768px) {
+    .search-result-item-body {
+        margin-left: 200px
+    }
+}
+
+
+
+    .search-result-item-heading {
+        font-weight: 900;
+        color: #555
+    }
+    .search-item-text {
+        font-weight: 600;
+    }
+    .search-result-item-heading {
+        font-weight: 900;
+        color: #555
+    }
+
+@@media (min-width:768px) {
+    .search-result-item-heading {
+        margin: 0
+    }
+</style>
+<div class="container">
+    <div class="row ng-scope">
+
+        <div class="col-md-9 col-md-pull-3">
+            @foreach (var item in Model)
+            {
+                <section class="search-result-item">
+                    <a class="image-link" href="#">
+                        <img class="image" src="@Html.DisplayFor(modelItem => item.GroupAvatar)">
+                    </a>
+                    <div class="search-result-item-body">
+                        <div class="row">
+                            <div class="col-sm-9">
+                                <h4 class="search-result-item-heading"> @Html.DisplayFor(modelItem => item.Name)</h4>
+                                <p class="info">@Html.DisplayFor(modelItem => item.GroupDescription)</p>
+                                <p class="search-item-text">@Html.DisplayFor(modelItem => item.Size) Subscribers</p>
+                            </div>
+                            <div class="col-sm-3 text-align-center">
+
+                                <p class="fs-mini text-muted"></p><a class="btn btn-primary btn-info btn-sm" href="#">Subscribe</a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            }
+            <div class="text-align-center">
+                <ul class="pagination pagination-sm">
+                    <li class="disabled">
+                        <a href="#">Prev</a>
+                    </li>
+                    <li class="active">
+                        <a href="#">1</a>
+                    </li>
+                    <li>
+                        <a href="#">2</a>
+                    </li>
+                    <li>
+                        <a href="#">3</a>
+                    </li>
+                    <li>
+                        <a href="#">4</a>
+                    </li>
+                    <li>
+                        <a href="#">5</a>
+                    </li>
+                    <li>
+                        <a href="#">Next</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*<h2>Index</h2>
+
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GroupDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GroupAvatar)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GroupAvatarFullSize)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsPrivate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Size)
+            </th>
+            <th></th>
+        </tr>
+
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GroupDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GroupAvatar)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GroupAvatarFullSize)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsPrivate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Size)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+                @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+            </td>
+        </tr>
+    }
+
+    </table>*@
+
+
