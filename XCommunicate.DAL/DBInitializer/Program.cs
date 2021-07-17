@@ -21,8 +21,6 @@ namespace DBInitializer
 
                 Console.WriteLine("Done.");
             }
-
-            Console.ReadKey();
         }
     }
 }
