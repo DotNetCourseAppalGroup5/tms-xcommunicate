@@ -1,0 +1,276 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style/index.css" />
+    <link rel="stylesheet"
+          href="https://use.fontawesome.com/releases/v5.14.0/css/all.css"
+          integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc"
+          crossorigin="anonymous" />
+    <title>Communities</title>
+    <style>
+    @@font-face {
+  font-family: "Open-Sars";
+  font-weight: 400;
+  src: url(../assets/fonts/OpenSans-Regular.ttf);
+}
+@@font-face {
+  font-family: "Open-Sars";
+  font-weight: 700;
+  src: url(../assets/fonts/OpenSans-Bold.ttf);
+}
+* {
+  font-family: "Open-Sars";
+  box-sizing: border-box;
+}
+.content {
+  width: 80%;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow: 0 0 3px 1px #ccc;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-radius: 5px;
+}
+h3 {
+  font-size: 16px;
+  padding-left: 5px;
+}
+.aside {
+  width: 20%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(150, 220, 250);
+  border-radius: 5px;
+}
+.user-photo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(189, 225, 217);
+}
+.user-photo-container {
+  position: relative;
+}
+.user-photo-edit-btn {
+  display: flex;
+  padding-left: 2px;
+  justify-content: center;
+  align-items: center;
+  width: 20px;
+  height: 20px;
+  font-size: 10px;
+  background: #ffffff;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+}
+.user-photo-edit-btn:hover {
+  cursor: pointer;
+  background: #ffffff;
+  opacity: 0.8;
+}
+.user-photo-edit-btn:active {
+  background: #ffffff;
+  opacity: 0.9;
+}
+.aside-item .user-name {
+  margin: 15px 0;
+  font-size: 32px;
+  font-weight: bold;
+  color: rgb(100, 100, 100);
+}
+.aside-item .user-name:hover {
+  transition: 0.5s;
+  transform: translateX(0);
+}
+.user-image {
+  margin-top: 15px;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+}
+.aside-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.aside-item p {
+  font-size: 13px;
+  padding: 0 10px;
+  color: rgb(70, 70, 70);
+  font-weight: 700;
+  text-align: justify;
+  cursor: pointer;
+  transition: 0.5s;
+}
+.aside-item p:hover {
+  transition: 0.5s;
+  transform: translateX(10px);
+}
+.aside-item {
+  border-radius: 5px;
+  width: 100%;
+}
+.main-content {
+  width: 50%;
+  font-size: 16px;
+}
+.content-item {
+  padding: 20px;
+}
+.content-item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.add-btn {
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 2px 5px;
+  transition: .2s;
+}
+.add-btn:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+.add-btn:active {
+  color: #fff;
+  background: black;
+  transition: .2s;
+}
+.news-item-input-field {
+  resize: none;
+  width: 100%;
+  height: 140px;
+  padding: 5px;
+  border-radius: 10px;
+}
+.news-container {
+  padding: 5px 20px;
+  display: flex;
+  flex-direction: column;
+}
+.news-item {
+  width: 100%;
+  box-shadow: 1px 1px 0 0 #ccc;
+  border: 1px solid #ccc;
+  padding: 5px;
+  border-radius: 10px;
+}
+.news-title {
+  font-size: 12px;
+  color: #404040;
+}
+.colleagues {
+  padding: 0 20px;
+}
+.colleague-info-fields {
+  display: flex;
+  flex-direction: column;
+}
+.colleague-info-fields label {
+  font-size: 14px;
+}
+.colleague-info-fields input {
+  margin-bottom: 10px;
+  padding: 5px;
+}
+.colleague-item {
+  display: flex;
+  height: 80px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+.colleague-photo {
+  height: 65px;
+  border-radius: 50%;
+}
+.colleague-info {
+  width: 70%;
+}
+.colleagues-container {
+  width: 30%;
+}
+.communities-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.community-item {
+  width: 100%;
+  height: 120px;
+  margin: 8px;
+  padding: 16px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-bottom: 1px solid #eee;
+}
+.community-image img {
+  height: 80px;
+  width: 80px;
+}
+.community-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-start;
+  width: 90%;
+}
+.subscribe-community {
+  font-size: 12px;
+}
+.subscribe-community:hover {
+  cursor: pointer;
+}
+    </style>
+</head>
+<body>
+
+    <div class="content">
+        <div class="main-content" style="width: 100%">
+            <div class="content-item">
+                <div class="content-item-header communities-header">
+                </div>
+            </div>
+            <div class="communities-container">
+                <div class="community-item">
+                    <div class="community-image">
+                        <img src="https://nces.by/wp-content/uploads/vk.png">
+                    </div>
+                    <div class="community-text">
+                        <div class="community-name">VK</div>
+                        <div class="subscribe-community">subscribe</div>
+                    </div>
+                </div>
+                <div class="community-item">
+                    <div class="community-image">
+                        <img src="https://nces.by/wp-content/uploads/vk.png">
+                    </div>
+                    <div class="community-text">
+                        <div class="community-name">VK</div>
+                        <div class="subscribe-community">subscribe</div>
+                    </div>
+                </div>
+                <div class="community-item">
+                    <div class="community-image">
+                        <img src="https://nces.by/wp-content/uploads/vk.png">
+                    </div>
+                    <div class="community-text">
+                        <div class="community-name">VK</div>
+                        <div class="subscribe-community">subscribe</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

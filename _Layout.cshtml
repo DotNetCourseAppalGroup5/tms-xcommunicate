@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+    <style>
+        ul#menu li {
+            display: inline;
+        }
+        ul#menu {
+            margin: 0;
+            /* Обнуляем значение отступов */
+            padding: 4px;
+            /* Значение полей */
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <!--меню-->
+    <header>
+        <div>
+            <ul id="menu">
+                <!--Вместо контроллеров свои пути пропишите-->
+                <li><a href="~/Home/Index">Profile</a></li>
+                <li><a href="~/Home/Index">Sing Out</a></li>
+                <li><a href="~/Home/Index">Main Page</a></li>
+                <li><a href="~/Home/Privacy">Communities</a></li>
+            </ul>
+            <hr>
+        </div>
+    </header>
+
+
+    <!--основной контент-->
+    <div class="container body-content">
+
+        @RenderBody()
+        
+    </div>
+</body>
+</html>

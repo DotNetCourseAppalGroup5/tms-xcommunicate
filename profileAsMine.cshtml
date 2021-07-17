@@ -1,0 +1,78 @@
+﻿@{
+    ViewBag.Title = "Profile";
+}
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="~/Content/ProfileContent/index.css" />
+    <link rel="stylesheet"
+          href="https://use.fontawesome.com/releases/v5.14.0/css/all.css"
+          integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc"
+          crossorigin="anonymous" />
+    <title>TimkedIN</title>
+</head>
+<body>
+    <div class="content">
+        <aside class="aside">
+            <div class="user-photo aside-item">
+                <div class="user-photo-container">
+                    <img src="~/Content/ProfileContent/photo.jpg" alt="" class="user-image" />
+                    <div class="user-photo-edit-btn">
+                        <div>
+                            @using (Html.BeginForm("Index", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                            {
+                                <input type="file" id="fileAdd" name="file" /><br />
+                                <button type="submit" class="btn btn-primary">Sign in</button>
+                            }
+                        </div>
+                        <i class="fas fa-edit"></i>
+                    </div>
+                </div>
+                <p class="user-name">Tim Yakubovski</p>
+                <p class="user-info">Age: 19</p>
+            </div>
+            <div class="aside-item">
+                <h3>X-Communicate</h3>
+                <p><i></i> Gender: Male</p>
+                <p><i></i>Date of birth: 06.08.2001</p>
+                <p><i></i>Native city: Beirut</p>
+                <input type="button" value="Settings" onClick='location.href="/Home/Settings"'>
+            </div>
+
+        </aside>
+        <div class="main-content">
+            <div class="content-item">
+                <div class="content-item-header news-header">
+                    <h3>News</h3>
+                    <div class="add-btn add-news">Share</div>
+                </div>
+                <textarea class="news-item-input-field"
+                          name="news-item"
+                          id="news-item"
+                          placeholder="Share something new with your friends"></textarea>
+            </div>
+            <div class="news-container">
+
+            </div>
+        </div>
+        <div class="colleagues-container">
+            <div class="content-item">
+                <div class="content-item-header colleagues-header">
+                    <h3>Colleagues</h3>
+                    <div class="add-btn add-colleague">Add</div>
+                </div>
+
+            </div>
+            <div class="colleagues">
+                <div class="colleague-item">
+                    <img class="colleague-photo" src="https://media-exp1.licdn.com/dms/image/C4D03AQHy_163DTn2uA/profile-displayphoto-shrink_800_800/0/1586453867868?e=1631750400&v=beta&t=ajccHJE_SeD2MCBR19rJbJKpUr-Mg6GYtFDwRBD7O8s">
+                    <div class="colleague-info">
+                        <div class="colleague-name">Pavel Zelenko</div>
+                        <div class="colleague-text">Frontend Developer</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
