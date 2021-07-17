@@ -1,7 +1,8 @@
-﻿using Models.Entities;
+using Microsoft.AspNet.Identity.EntityFramework;
 using System.Data.Entity;
+using X_Com_Authentocation.Models.Entity;
 
-namespace DataProvider
+namespace Repositories
 {
     public class ApplicationDbContext : IdentityDbContext<User>
     {
