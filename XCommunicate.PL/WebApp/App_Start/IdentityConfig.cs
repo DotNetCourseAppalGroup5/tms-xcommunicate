@@ -8,9 +8,9 @@ using Microsoft.Owin;
 using Microsoft.Owin.Security;
 using System.Net.Mail;
 using System.Net;
-using X_Com_Authentocation.Models.Entity;
-using X_Com_Authentocation.Models.Context;
 using System.Configuration;
+using Models.Entities;
+using DataProvider;
 
 namespace WebApp
 {
@@ -35,6 +35,7 @@ namespace WebApp
             MailMessage mailMessage = new MailMessage(fromAddress, toAddress);
             mailMessage.Body = message.Body;
             mailMessage.IsBodyHtml = true;
+            mailMessage.Subject = "Confirm your email";
 
             SmtpClient smtpClient = new SmtpClient();
             smtpClient.Host = "smtp.gmail.com";

@@ -11,7 +11,7 @@ namespace DBInitializer.InitializingScripts
             EntityType post = new EntityType() { Name = "Post" };
             EntityType comment = new EntityType() { Name = "Comment" };
 
-            InitializingRepo<EntityType> entityTypeRepo = new InitializingRepo<EntityType>(new ApplicationContext());
+            InitializingRepo<EntityType> entityTypeRepo = new InitializingRepo<EntityType>(new ApplicationDbContext());
 
             entityTypeRepo.Create(post, comment);
         }

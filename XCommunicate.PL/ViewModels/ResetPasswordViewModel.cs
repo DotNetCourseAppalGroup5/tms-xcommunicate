@@ -2,12 +2,8 @@
 
 namespace ViewModels
 {
-    public class RegisterViewModel
+    public class ResetPasswordViewModel
     {
-        [Required]
-        [Display(Name = "Login")]
-        public string Login { get; set; }
-
         [Required]
         [EmailAddress]
         [Display(Name = "Email")]
@@ -23,5 +19,7 @@ namespace ViewModels
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+        public string Code { get; set; }
     }
 }

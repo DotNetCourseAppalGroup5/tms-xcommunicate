@@ -11,7 +11,7 @@ namespace DBInitializer.InitializingScripts
             UserState activeState = new UserState() { Name = "Active" };
             UserState deactivatedState = new UserState() { Name = "Deactivated" };
 
-            InitializingRepo<UserState> userStateRepo = new InitializingRepo<UserState>(new ApplicationContext());
+            InitializingRepo<UserState> userStateRepo = new InitializingRepo<UserState>(new ApplicationDbContext());
 
             userStateRepo.Create(activeState, deactivatedState);
         }
