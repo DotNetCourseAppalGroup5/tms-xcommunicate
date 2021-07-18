@@ -12,7 +12,8 @@ namespace ViewModels
         [MaxLength(50)]
         public string LastName { get; set; }
 
-        public DateTime BirthDate { get; set; }
+        [BirthDateValidator(ErrorMessage = "Correct format: XX.XX.XXXX. Input a year in the range from 1950 to 2011")]
+        public string BirthDate { get; set; }
 
         [GenderValidator(ErrorMessage = "Please input male or female")]
         public string Gender { get; set; }
