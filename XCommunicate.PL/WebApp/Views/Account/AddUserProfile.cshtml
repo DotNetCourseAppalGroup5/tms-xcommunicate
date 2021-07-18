@@ -5,6 +5,10 @@
     ViewBag.Title = "AddUserProfile";
 }
 
+@@{
+    ViewBag.Title = "AddUserProfile";
+}
+
 @using (Html.BeginForm("AddUserProfile", "Account", new { userId = ViewBag.userId }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
 {
     @Html.AntiForgeryToken()
@@ -23,33 +27,37 @@
             @Html.TextBoxFor(m => m.LastName, new { @class = "form-control" })
         </div>
     </div>
-    @*<div class="form-group">
-            @Html.LabelFor(m => m.Gender, new { @class = "col-md-2 control-label" })
-            <div class="col-md-10">
-                @Html.PasswordFor(m => m.Gender, new { @class = "form-control" })
-            </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Gender, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.Gender, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Gender, "", new { @class = "text-danger" })
         </div>
-        <div class="form-group">
+    </div>
+    @*<div class="form-group">
             @Html.LabelFor(m => m.BirthDate, new { @class = "col-md-2 control-label" })
             <div class="col-md-10">
-                @Html.PasswordFor(m => m.BirthDate, new { @class = "form-control" })
-            </div>
-        </div>
-        <div class="form-group">
-            @Html.LabelFor(m => m.Country, new { @class = "col-md-2 control-label" })
-            <div class="col-md-10">
-                @Html.PasswordFor(m => m.Country, new { @class = "form-control" })
-            </div>
-        </div>
-        <div class="form-group">
-            @Html.LabelFor(m => m.Town, new { @class = "col-md-2 control-label" })
-            <div class="col-md-10">
-                @Html.PasswordFor(m => m.Town, new { @class = "form-control" })
+                <input type="date" id="start" name="trip-start"
+                       value="2018-07-22"
+                       min="1990-01-01" max="2012-12-31">
             </div>
         </div>*@
+    <div class="form-group">
+        @Html.LabelFor(m => m.Country, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.Country, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Town, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.Town, new { @class = "form-control" })
+        </div>
+    </div>
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
             <input type="submit" class="btn btn-default" value="AddUserProfile" />
         </div>
     </div>
+    @Html.ActionLink("Skip this step ", "Login", "Account", null)
 }
