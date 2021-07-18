@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Services.Validators;
+using System.ComponentModel.DataAnnotations;
 
 namespace ViewModels
 {
@@ -11,6 +12,7 @@ namespace ViewModels
 
         [Required]
         [Display(Name = "Username")]
+        [ObsceneWordsValidator(ErrorMessage = "Login can't contain obscene words!")]
         public string Username { get; set; }
     }
 }
