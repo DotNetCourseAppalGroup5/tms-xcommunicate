@@ -1,4 +1,7 @@
-﻿@{
+﻿@model Models.Entities.Entity
+
+
+@{
     Layout = null;
 }
 
@@ -242,23 +245,23 @@
     <title>TimkedIN</title>
 </head>
 <body>
-    
-    <form method="post">
-        <div class="content">
-            <div class="main-content">
-                <div class="content-item">
-                    <div class="content-item-header news-header">
-                        <h3>News</h3>
-                        <div class="add-btn add-news"><a href="/Entity/AddEntity">Post</a></div>
+
+    <div class="content">
+        <div class="main-content">
+            <div class="content-item">
+                <form method="post">
+                    <div class="content-item-header news-header">                    
                     </div>
                     <textarea class="news-item-input-field"
                               name="Content"
                               id="news-item"
-                              placeholder="Share something new with your friends"></textarea>
-                </div>
+                              placeholder="Share something new with your collegues"></textarea>
+                    <input type="submit" value="send" />
+                </form>
             </div>
-            </div>
-    </form>
+        </div>
+    </div>
+
 
 </body>
 </html>

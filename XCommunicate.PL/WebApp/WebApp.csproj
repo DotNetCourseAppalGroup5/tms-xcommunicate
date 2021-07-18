@@ -177,7 +177,6 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\EntityInitializer.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -238,8 +237,11 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Entity\PostsToShow.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Entity\AddPost.cshtml" />
+    <Content Include="Views\Entity\ViewAllPosts.cshtml" />
+    <Content Include="Views\Entity\EditPost.cshtml" />
+    <Content Include="Views\Entity\DeletePost.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

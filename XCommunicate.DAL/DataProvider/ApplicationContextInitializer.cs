@@ -1,4 +1,5 @@
 ﻿using Models.Entities;
+using System;
 using System.Data.Entity;
 
 namespace DataProvider
@@ -30,8 +31,22 @@ namespace DataProvider
             context.UserStates.Add(activeState);
             context.UserStates.Add(deactivatedState);
 
+            Group group1 = new Group { Name = "ЗДАРОВА БАНДИТЫ", GroupDescription = "Тупа чилим с Жорой и Витямбой", IsPrivate = false };
+            context.Companies.Add(group1);
+
+            context.SaveChanges();
+
+            //
+            Entity entity1 = new Entity { EntityTypeId = 1, UploadedAt = DateTime.Now, Content = "Раз два три", EntityParentId = 1, ParentGroupId = 1 };
+            Entity entity2 = new Entity { EntityTypeId = 1, UploadedAt = DateTime.Now, Content = "првоаровр овоарповарповла воапрволарповарлп ваопр ловар п", EntityParentId = 1, ParentGroupId = 1 };
+
+            context.Entity.Add(entity1);
+            context.Entity.Add(entity2);
+            
             // saving changes in DB
             context.SaveChanges();
+
+            
         }
     }
 }

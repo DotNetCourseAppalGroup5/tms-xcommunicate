@@ -11,39 +11,21 @@ using Repositories.Repos;
 
 namespace WebApp.Controllers
 {
-    public class EntityController: Controller
+    public class EntityController : Controller
     {
 
         private ApplicationContext _dbContext;
-        private EntityRepository _entityRepository;
+        private EntityRepository _entityRepository = new EntityRepository(new DataProvider.ApplicationContext());
 
         int groupId = 1;
 
-        public ActionResult Index(int parentGroupId)
+        public ActionResult AddPost()
         {
-            parentGroupId = groupId;
-            var postsToShow = _entityRepository.GetAllForGroup(parentGroupId);
-
-            ViewBag.postsToShow = postsToShow;
-
-            return View(groupId);
-        }
-
-        public ActionResult PostsToShow(int parentGroupId)
-        {
-            parentGroupId = 1; 
-            var postsToShow = _entityRepository.GetAllForGroup(parentGroupId);
-            ViewBag.postsToShow = postsToShow;
             return View();
         }
 
-        public ActionResult AddEntity()
-        {
-            return View(new Entity());
-        }
-
         [HttpPost]
-        public string AddEntity(Entity entity)
+        public ActionResult AddPost(Entity entity)
         {
 
             entity.EntityTypeId = 1;
@@ -52,9 +34,61 @@ namespace WebApp.Controllers
             entity.ParentGroupId = 1;
 
             _entityRepository.AddEntity(entity);
-            
 
-            return "ok";
+            return View();
+        }
+
+        public ActionResult ViewAllPosts()
+        {
+            int parentGroupId = 1;
+            var postsToShow = _entityRepository.GetAllForGroup(parentGroupId);
+
+            ViewBag.postsToShow = postsToShow;
+
+            return View();
+        }
+
+        [HttpGet]
+        public ActionResult EditPost(int id)
+        {
+            Entity post = _entityRepository.GetById(id);
+
+            ViewBag.Id = post.Id;
+            ViewBag.UserId = post.UserId;
+            ViewBag.UploadedAt = post.UploadedAt;
+            ViewBag.Content = post.Content;
+
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult EditPost(Entity post)
+        {
+            post.UploadedAt = DateTime.Now;
+            post.ParentGroupId = 1;
+            post.EntityTypeId = 1;
+
+            _entityRepository.UpdateEntity(post);
+
+            return RedirectToAction("ViewAllPosts");
+        }
+
+        [HttpGet]
+        public ActionResult DeletePost(int id)
+        {
+            Entity post = _entityRepository.GetById(id);
+
+            ViewBag.Id = post.Id;
+
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult DeletePost(Entity post)
+        {
+            _entityRepository.DeleteEntity(post.Id);
+
+            return RedirectToAction("ViewAllPosts");
         }
     }
 }

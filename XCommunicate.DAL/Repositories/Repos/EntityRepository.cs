@@ -28,7 +28,7 @@ namespace Repositories.Repos
         {
             IQueryable<Entity> postsForGroup = entities;
 
-            var postsToShow = entities.Where(e => e.ParentGroupId == parentGroupId && e.EntityTypeId == 1).ToList();
+            var postsToShow = entities.Where(e => e.ParentGroupId == parentGroupId).Where(e => e.EntityTypeId == 1).ToList();
 
             return postsToShow;
         }
@@ -45,14 +45,18 @@ namespace Repositories.Repos
 
         public void UpdateEntity(Entity entity)
         {
-            _dbContext.Entry(entity).State = EntityState.Modified;
+            var entityToUpdate = entities.Find(entity.Id);
+
+            _dbContext.Entry(entityToUpdate).CurrentValues.SetValues(entity);
+            //_dbContext.Entry(entity).State = EntityState.Modified;
+            
             _dbContext.SaveChanges();
         }
 
         public void DeleteEntity(int id)
         {
-            var groupToRemove = entities.Find(id);
-            entities.Remove(groupToRemove);
+            var entityToDelete = entities.Find(id);
+            entities.Remove(entityToDelete);
             _dbContext.SaveChanges();
         }
     }
