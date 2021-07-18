@@ -35,7 +35,7 @@ namespace WebApp
             MailMessage mailMessage = new MailMessage(fromAddress, toAddress);
             mailMessage.Body = message.Body;
             mailMessage.IsBodyHtml = true;
-            mailMessage.Subject = "Confirm your email";
+            mailMessage.Subject = message.Subject;
 
             SmtpClient smtpClient = new SmtpClient();
             smtpClient.Host = "smtp.gmail.com";

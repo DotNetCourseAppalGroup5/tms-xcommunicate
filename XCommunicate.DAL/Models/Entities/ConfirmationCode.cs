@@ -15,7 +15,7 @@ namespace Models.Entities
         [MaxLength(50)]
         public string EmailAddress { get; set; }
         
-        public DateTime CreatedAt { get; set; }
+        public string CreatedAt { get; set; }
         
         [MaxLength(6)]
         public string Code { get; set; }

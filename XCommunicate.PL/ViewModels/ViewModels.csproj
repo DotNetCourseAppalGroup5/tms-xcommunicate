@@ -46,6 +46,7 @@
     <Compile Include="ExternalLoginListViewModel.cs" />
     <Compile Include="ForgotPasswordViewModel.cs" />
     <Compile Include="ForgotViewModel.cs" />
+    <Compile Include="LoginCodeConfirmationViewModel.cs" />
     <Compile Include="LoginViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegisterViewModel.cs" />

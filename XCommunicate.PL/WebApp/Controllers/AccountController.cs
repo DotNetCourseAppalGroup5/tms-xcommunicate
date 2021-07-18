@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using DataProvider;
@@ -122,37 +123,70 @@ namespace WebApp.Controllers
 
         // GET: /Account/Login
         [AllowAnonymous]
-        public ActionResult Login(string returnUrl)
+        public ActionResult Login()
         {
-            ViewBag.ReturnUrl = returnUrl;
             return View();
         }
 
-        //
         // POST: /Account/Login
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Login(LoginViewModel model, string returnUrl)
+        public async Task<ActionResult> Login(LoginViewModel model)
         {
             if (ModelState.IsValid)
             {
                 var user = await UserManager.FindAsync(model.Login, model.Password);
                 if (user != null)
                 {
-                    if (user.EmailConfirmed == true)
-                    {
-                        await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
-                        return RedirectToLocal(returnUrl);
-                    }
-                    else
-                    {
-                        ModelState.AddModelError("", "Не подтвержден email.");
-                    }
+                    Random rnd = new Random();
+                    int number = rnd.Next(100000, 999999);
+                    string code = number.ToString();
+
+                    await UserManager.SendEmailAsync(user.Id, "Confirmation code", "Your confirmation code: " + code );
+
+                    ViewBag.userId = user.Id;
+                    ViewBag.code = code;
+
+                    return View("LoginCodeConfirmation");
                 }
                 else
                 {
-                    ModelState.AddModelError("", "Неверный логин или пароль");
+                    ModelState.AddModelError("", "Login or password is wrong");
+                }
+            }
+            return View(model);
+        }
+
+        // POST: /Account/LoginCodeConfirmation
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> LoginCodeConfirmation(LoginCodeConfirmationViewModel model, string code, string userId)
+        {
+            if (ModelState.IsValid)
+            {
+                if (model.Code == code)
+                {
+                    User user = await UserManager.FindByIdAsync(userId);
+                    if(user != null)
+                    {
+                        if (user.EmailConfirmed == true)
+                        {
+                            await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+                            return RedirectToAction("Index", "Home");
+                        }
+                        else
+                        {
+                            ModelState.AddModelError("", "Email is not confirmed");
+                        }
+
+                        ModelState.AddModelError("", "Confirmation code is wrong");
+                    }  
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Login or password is wrong");
                 }
             }
             return View(model);
