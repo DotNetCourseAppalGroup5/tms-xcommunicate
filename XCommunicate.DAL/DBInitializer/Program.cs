@@ -1,5 +1,4 @@
-﻿using DBInitializer.InitializingScripts;
-using System;
+﻿using System;
 
 namespace DBInitializer
 {

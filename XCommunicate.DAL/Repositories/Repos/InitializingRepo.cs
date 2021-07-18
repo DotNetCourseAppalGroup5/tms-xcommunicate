@@ -9,9 +9,9 @@ namespace Repositories.Repos
 {
     public class InitializingRepo<TEntity> : IGenericRepository<TEntity> where TEntity : class
     {
-        private readonly ApplicationContext _dbContext;
+        private readonly ApplicationDbContext _dbContext;
         private readonly DbSet<TEntity> entities;
-        public InitializingRepo(ApplicationContext dbContext)
+        public InitializingRepo(ApplicationDbContext dbContext)
         {
             _dbContext = dbContext;
         }

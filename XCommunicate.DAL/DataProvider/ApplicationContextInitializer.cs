@@ -3,9 +3,9 @@ using System.Data.Entity;
 
 namespace DataProvider
 {
-    class ApplicationContextInitializer : DropCreateDatabaseAlways<ApplicationContext>
+    class ApplicationContextInitializer : DropCreateDatabaseAlways<ApplicationDbContext>
     {
-        protected override void Seed(ApplicationContext context)
+        protected override void Seed(ApplicationDbContext context)
         {
             // initializing EntityTypes table
             EntityType post = new EntityType() { Name = "Post" };

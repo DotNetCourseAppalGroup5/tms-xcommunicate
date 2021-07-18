@@ -12,16 +12,16 @@ namespace DataProvider
         }
 
         public DbSet<UserProfile> Profiles { get; set; }
-        public DbSet<UserState> UserState { get; set; }
+        public DbSet<UserState> UserStates { get; set; }
         public DbSet<UserStateHistory> UserStateHistory { get; set; }
-        public DbSet<Message> Message { get; set; }
-        public DbSet<Like> Like { get; set; }
-        public DbSet<GroupUser> GroupUser { get; set; }
-        public DbSet<GroupRole> GroupRole { get; set; }
-        public DbSet<Group> Group { get; set; }
-        public DbSet<EntityType> EntityType { get; set; }
-        public DbSet<Entity> Entity { get; set; }
-        public DbSet<Colleague> Colleague { get; set; }
+        public DbSet<Message> Messages { get; set; }
+        public DbSet<Like> Likes { get; set; }
+        public DbSet<GroupUser> GroupUsers { get; set; }
+        public DbSet<GroupRole> GroupRoles { get; set; }
+        public DbSet<Group> Groups { get; set; }
+        public DbSet<EntityType> EntityTypes { get; set; }
+        public DbSet<Entity> Entities { get; set; }
+        public DbSet<Colleague> Colleagues { get; set; }
 
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

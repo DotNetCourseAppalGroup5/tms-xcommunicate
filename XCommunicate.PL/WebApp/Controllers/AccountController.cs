@@ -6,7 +6,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Models.Entities;
-using Repositories.Repositories;
+using Repositories.Repos;
 using ViewModels;
 
 namespace WebApp.Controllers
