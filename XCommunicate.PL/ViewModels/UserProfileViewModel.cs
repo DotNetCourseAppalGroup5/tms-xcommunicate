@@ -1,4 +1,5 @@
-﻿using Services.Validators;
+using Services.Validators;
+using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace ViewModels
@@ -11,7 +12,7 @@ namespace ViewModels
         [MaxLength(50)]
         public string LastName { get; set; }
 
-        public string BirthDate { get; set; }
+        public DateTime BirthDate { get; set; }
 
         [GenderValidator(ErrorMessage = "Please input male or female")]
         public string Gender { get; set; }
