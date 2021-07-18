@@ -108,7 +108,7 @@ namespace WebApp.Controllers
                 User user = await UserManager.FindByIdAsync(userId);
                 if (user != null)
                 {
-                    UserProfile userProfile = new UserProfile() { UserId = user.Id, FirstName = model.FirstName, LastName = model.LastName, User = user };
+                    UserProfile userProfile = new UserProfile() { UserId = user.Id, FirstName = model.FirstName, LastName = model.LastName, User = user, BirthDate = model.BirthDate, Gender = model.Gender, Country = model.Country, Town = model.Town };
                     ProfileRepository profileRepository = new ProfileRepository(HttpContext.GetOwinContext().Get<ApplicationDbContext>());
                     profileRepository.Add(userProfile);
 

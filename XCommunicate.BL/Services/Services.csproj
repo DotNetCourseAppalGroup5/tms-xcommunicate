@@ -53,7 +53,9 @@
     <Compile Include="Services\GroupUserService.cs" />
     <Compile Include="Services\MessageService.cs" />
     <Compile Include="Services\UserService.cs" />
+    <Compile Include="Validators\BirthDateValidator.cs" />
     <Compile Include="Validators\GenderValidator.cs" />
+    <Compile Include="Validators\ObsceneWordsValidator.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\XCommunicate.DAL\Models\Models.csproj">

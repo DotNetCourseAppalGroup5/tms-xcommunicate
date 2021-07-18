@@ -16,7 +16,7 @@ namespace Models.Entities
         [MaxLength(50)]
         public string LastName { get; set; }
 
-        public DateTime BirthDate { get; set; }
+        public string BirthDate { get; set; }
 
         public string Gender { get; set; }
 
@@ -33,7 +33,7 @@ namespace Models.Entities
         public User User { get; set; }
 
         public UserProfile() { }
-        public UserProfile(string firstName, string lastName, DateTime birthDate, string gender, string country, string town)
+        public UserProfile(string firstName, string lastName, string birthDate, string gender, string country, string town)
         {
             FirstName = firstName;
             LastName = lastName;
@@ -42,7 +42,7 @@ namespace Models.Entities
             Country = country;
             Town = town;
         }
-        public UserProfile(string id, string firstName, string lastName, DateTime birthDate, string gender, string country, string town, User user)
+        public UserProfile(string id, string firstName, string lastName, string birthDate, string gender, string country, string town, User user)
         {
             UserId = id;
             FirstName = firstName;
