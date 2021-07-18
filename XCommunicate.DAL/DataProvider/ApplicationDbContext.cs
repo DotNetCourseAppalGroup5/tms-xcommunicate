@@ -6,8 +6,13 @@ namespace DataProvider
 {
     public class ApplicationDbContext : IdentityDbContext<User>
     {
+        static ApplicationDbContext()
+        {
+            Database.SetInitializer(new ApplicationContextInitializer());
+        }
+
         public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+            : base("DbConnection", throwIfV1Schema: false)
         {
         }
 
@@ -22,7 +27,6 @@ namespace DataProvider
         public DbSet<EntityType> EntityTypes { get; set; }
         public DbSet<Entity> Entities { get; set; }
         public DbSet<Colleague> Colleagues { get; set; }
-
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
