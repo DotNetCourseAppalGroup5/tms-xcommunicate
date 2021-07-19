@@ -17,8 +17,7 @@ namespace WebApp.Controllers
         private ApplicationContext _dbContext;
         private EntityRepository _entityRepository = new EntityRepository(new DataProvider.ApplicationContext());
 
-        int groupId = 1;
-
+        [HttpGet]
         public ActionResult AddPost()
         {
             return View();
@@ -27,7 +26,6 @@ namespace WebApp.Controllers
         [HttpPost]
         public ActionResult AddPost(Entity entity)
         {
-
             entity.EntityTypeId = 1;
             entity.UploadedAt = DateTime.Now;
             entity.EntityParentId = 1;
@@ -38,12 +36,13 @@ namespace WebApp.Controllers
             return View();
         }
 
+        [HttpGet]
         public ActionResult ViewAllPosts()
         {
             int parentGroupId = 1;
             var postsToShow = _entityRepository.GetAllForGroup(parentGroupId);
 
-            ViewBag.postsToShow = postsToShow;
+            ViewBag.PostsToShow = postsToShow;
 
             return View();
         }
@@ -58,15 +57,13 @@ namespace WebApp.Controllers
             ViewBag.UploadedAt = post.UploadedAt;
             ViewBag.Content = post.Content;
 
-            return View();
+            return View(post);
         }
 
         [HttpPost]
         public ActionResult EditPost(Entity post)
         {
-            post.UploadedAt = DateTime.Now;
-            post.ParentGroupId = 1;
-            post.EntityTypeId = 1;
+            post.UpdatedAt = DateTime.Now;
 
             _entityRepository.UpdateEntity(post);
 
@@ -80,7 +77,7 @@ namespace WebApp.Controllers
 
             ViewBag.Id = post.Id;
 
-            return View();
+            return View(post);
         }
 
         [HttpPost]

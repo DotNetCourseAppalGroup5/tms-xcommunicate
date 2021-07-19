@@ -1,8 +1,8 @@
 ﻿@model Models.Entities.Entity
 
-
 @{
     Layout = null;
+    ViewBag.Title = "DeletePost";
 }
 
 <!DOCTYPE html>
@@ -247,28 +247,25 @@
 <body>
 
 
-
-
     <div class="content-item" style="border:3px  #ccc  solid;">
-        <form method="post">
-            <input type="hidden" value="@ViewBag.Id" name="Id" />
-            <div class="content-item-header news-header">
-            </div>          
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            @Html.HiddenFor(p => p.Id)
+
             <div>
                 <p>
-                    Do you really wanna delete the post?
-                </p>
-                <p>
-                    <button class="button-Yes" onclick="document.location='/Entity/DeletePost/@ViewBag.Id'">Yes</button>
-                    <button type="submit" class="button-No">@Html.ActionLink("No", null, null, null, new { href = Request.UrlReferrer })</button>
-
+                    Do you really want to delete the post?
                 </p>
             </div>
-            </form>
+            <p>
+                <button class="button-Yes" onclick="document.location='/Entity/DeletePost/@Model.Id'">Yes</button>
+                <button type="submit" class="button-No">@Html.ActionLink("No", null, null, null, new { href = Request.UrlReferrer })</button>
+            </p>
+        }
     </div>
 
-
-    
 
 
 

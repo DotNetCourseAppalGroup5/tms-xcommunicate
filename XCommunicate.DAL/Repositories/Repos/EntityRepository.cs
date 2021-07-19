@@ -28,7 +28,11 @@ namespace Repositories.Repos
         {
             IQueryable<Entity> postsForGroup = entities;
 
-            var postsToShow = entities.Where(e => e.ParentGroupId == parentGroupId).Where(e => e.EntityTypeId == 1).ToList();
+            var postsToShow = entities
+                .Where(e => e.ParentGroupId == parentGroupId)
+                .Where(e => e.EntityTypeId == 1)
+                .OrderByDescending(e => e.UploadedAt)
+                .ToList();
 
             return postsToShow;
         }

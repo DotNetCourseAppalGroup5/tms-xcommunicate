@@ -3,6 +3,7 @@
 
 @{
     Layout = null;
+    ViewBag.Title = "ViewAllPosts";
 }
 
 <!DOCTYPE html>
@@ -245,38 +246,32 @@
     <title>TimkedIN</title>
 </head>
 <body>
+    @Html.AntiForgeryToken()
 
-
-
-    @foreach (var i in ViewBag.postsToShow)
+    @foreach (var i in ViewBag.PostsToShow)
     {
-
-
         <div class="content-item" style="border:3px  #ccc  solid;">
-            <div class="content-item-header news-header">
-            </div>
-            <input type="hidden" value="@i.Id" name="Id" />
+            @Html.HiddenFor(p => p.Id)
+
             <p>
-                Author: @i.UserId      Date of Post: @i.UploadedAt
+                Author: @i.UserId
+                (Date of Post: @i.UploadedAt)
+                @(@i.UpdatedAt != null ? "(edited)" : "")
             </p>
+
             <div>
                 <p>
                     @i.Content
                 </p>
                 <p>
-                    <button class="button-Like">Like</button><button class="button-Comment">Comment</button>
+                    <button class="button-Like">Like</button>
+                    <button class="button-Comment">Comment</button>
                     <button class="button-Edit" onclick="document.location='/Entity/EditPost/@i.Id'">Edit</button>
                     <button class="button-Edit" onclick="document.location='/Entity/DeletePost/@i.Id'">Delete</button>
                 </p>
             </div>
         </div>
-
-
     }
-
-
-
-
 </body>
 </html>
 

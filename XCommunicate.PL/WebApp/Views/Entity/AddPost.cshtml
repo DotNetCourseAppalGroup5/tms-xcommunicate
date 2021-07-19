@@ -1,8 +1,8 @@
 ﻿@model Models.Entities.Entity
 
-
 @{
     Layout = null;
+    ViewBag.Title = "AddPost";
 }
 
 <!DOCTYPE html>
@@ -245,24 +245,20 @@
     <title>TimkedIN</title>
 </head>
 <body>
-
     <div class="content">
         <div class="main-content">
             <div class="content-item">
-                <form method="post">
-                    <div class="content-item-header news-header">                    
-                    </div>
-                    <textarea class="news-item-input-field"
-                              name="Content"
-                              id="news-item"
-                              placeholder="Share something new with your collegues"></textarea>
-                    <input type="submit" value="send" />
-                </form>
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+
+                    @Html.TextAreaFor(p => p.Content, new { @class = "news-item-input-field", @placeholder = "Share something new with your collegues" })
+
+                    <input type="submit" value="Share" />
+                }
             </div>
         </div>
     </div>
-
-
 </body>
 </html>
 

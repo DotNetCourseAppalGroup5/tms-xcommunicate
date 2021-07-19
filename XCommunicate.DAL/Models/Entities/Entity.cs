@@ -14,6 +14,7 @@ namespace Models.Entities
         public int? EntityTypeId { get; set; }
 
         public DateTime UploadedAt { get; set; }
+        public DateTime? UpdatedAt { get; set; }
 
         public int? UserId { get; set; }
 
