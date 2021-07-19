@@ -1,0 +1,170 @@
+﻿@using Microsoft.AspNet.Identity
+@model ViewModels.UserProfileViewModel
+@{
+    ViewBag.Title = "UserSettings";
+}
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Settings</title>
+
+    <style>
+        body {
+        }
+
+        ul.Menu {
+            margin: 0;
+            /* Обнуляем значение отступов */
+            padding: 4px;
+            /* Значение полей */
+            text-align: center;
+        }
+
+            ul.Menu li {
+                display: inline;
+                /* Отображать как строчный элемент */
+                margin-right: 5px;
+                /* Отступ слева */
+            }
+
+        .settingDel {
+            text-align: center;
+        }
+
+        .settingDel1 {
+            background: transparent;
+            border-color: wheat;
+            border-width: 3px;
+            width: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <input type="button" value="Return to main page" onClick='location.href="/Account/UserProfile"'>
+        <hr>
+    </header>
+    <main>
+        <form>
+            <label for="setting1">Profiles setting</label>
+            <table class="table">
+                <tr>
+                    <td style="width:150px;">
+                        <strong>Personal Info </strong>
+                    </td>
+                    <td>
+                        @if (User.Identity.GetUserId == Model.UserId)
+                        {
+
+                            <div style="float: right">
+                                <a data-toggle="modal" href="#" id="edit" onclick="EditPersonalInfo();">
+                                    <span rel="tooltip"
+                                          title="Edit Personal Info"><i class=" icon-edit"></i></span>
+                                </a>
+                            </div>
+                        }
+                    </td>
+                </tr>
+                @if (Model.FirstName != null)
+                {
+                    <tr>
+                        <td>
+                            First Name
+                        </td>
+                        <td>
+                            @Html.DisplayFor(m => m.FirstName)
+                    </td>
+                </tr>
+            }
+                @if (Model.LastName != null)
+                {
+                    <tr>
+                        <td>
+                            Last Name
+                        </td>
+                        <td>
+                            @Html.DisplayFor(m => m.LastName)
+                    </td>
+                </tr>
+            }
+                @if (Model.Gender != null)
+                {
+                    <tr>
+                        <td>
+                            Gender
+                        </td>
+                        <td>
+                            @Html.DisplayFor(m => m.Gender)
+                    </td>
+                </tr>
+            }
+                @if (Model.BirthDate != null)
+                {
+                    <tr>
+                        <td>
+                            Birth date
+                        </td>
+                        <td>
+                            @Html.DisplayFor(m => m.BirthDate)
+                    </td>
+                </tr>
+            }
+                @if (Model.Country != null)
+                {
+                    <tr>
+                        <td>
+                            Country
+                        </td>
+                        <td>
+                            @Html.DisplayFor(m => m.Country)
+                    </td>
+                </tr>
+            }
+                @if (Model.Town != null)
+                {
+                    <tr>
+                        <td>
+                            Town
+                        </td>
+                        <td>
+                            @Html.DisplayFor(m => m.Town)
+                    </td>
+                </tr>
+            }
+            </table>
+        </form>
+        <hr>
+        <form>
+            <label for="setting2">Content setting</label>
+            <p><input type="checkbox" id="setting2" />Run video automaticly</p>
+            <p><input type="checkbox" id="setting2" />Run gif-animation automaticly</p>
+            <p><input type="checkbox" id="setting2" />Prompt stickers in input fields </p>
+            <p><input type="checkbox" id="setting2" />Comments sort: Intersitng at first</p>
+
+        </form>
+        <hr>
+        <form>
+            <label for="setting3">Password</label>
+            <p>
+                <div>Update recently <a href="">Change password</a></div>
+            </p>
+        </form>
+        <hr>
+        <form>
+            <label for="setting4">Email</label>
+            <p>
+                <div>Not email <a href="">Add email adress</a></div>
+            </p>
+        </form>
+        <hr>
+        <form>
+            <label for="setting5">Phone number</label>
+            <div><input type="tel" value="+375 ** *** ** 05" readonly id="setting5" /><a href=""> Change</a></div>
+        </form>
+        <hr>
+        <div class="settingDel"><button class="settingDel1">Delete page</button></div>
+    </main>
+</body>

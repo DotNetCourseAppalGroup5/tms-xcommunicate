@@ -1,0 +1,115 @@
+﻿@using Microsoft.AspNet.Identity
+@model ViewModels.UserProfileViewModel
+@{
+
+}
+<strong>
+    Edit Your BasicInfo
+</strong>
+<div id="edit" class="span12">
+    @using (Html.BeginForm("EditProfile", "Account"))
+    {
+
+        <table class="table">
+            <tr>
+                <td style="width:150px;">
+                    <label>
+                        First Name:
+                    </label>
+                </td>
+                <td>
+                    @Html.TextBoxFor(m => m.FirstName, new { @class = "span11" })
+                    @Html.ValidationMessageFor(model => model.FirstName)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>
+                        Last Name:
+                    </label>
+                </td>
+                <td>
+                    @Html.TextBoxFor(m => m.LastName, new { @class = "span11" })
+                    @Html.ValidationMessageFor(model => model.LastName)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>
+                        Email:
+                    </label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>
+                        Date Of Birth:
+                    </label>
+                </td>
+                <td>
+                    @if (Model.BirthDate.HasValue)
+                    {
+                        @Html.TextBoxFor(m => m.BirthDate, String.Format("{0:d}", Model.BirthDate), new { @class = "ui-datepicker span11", @style = "display:block;float:left;" })
+                        @Html.ValidationMessageFor(model => model.BirthDate)
+                    }
+                    else
+                    {
+                        @Html.TextBoxFor(m => m.BirthDate, new { @value = "", @class = "ui-datepicker span11", @style = "display:block;float:left;", @readonly = "readonly" })
+                    }
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Gender:</label>
+                </td>
+                <td>
+
+                    @if (Model.Gender == true)
+                    {
+                        @Html.RadioButtonFor(model => model.Gender, false) <text>Male</text>
+                        @Html.RadioButtonFor(model => model.Gender, true, new { @checked = "checked" })<text> Female</text>
+                    }
+                    else if (Model.Gender == false)
+                    {
+                        @Html.RadioButtonFor(model => model.Gender, false, new { @checked = "checked" })<text> Male</text>
+                        @Html.RadioButtonFor(model => model.Gender, true)<text> Female</text>
+                    }
+                    else
+                    {
+                        @Html.RadioButtonFor(model => model.Gender, false)<text> Male</text>
+                        @Html.RadioButtonFor(model => model.Gender, true)<text> Female</text>
+                    }
+                </td>
+            </tr>
+        </table>
+
+
+        @Html.HiddenFor(m => m.UserId)
+
+
+        <button class="btn btn-primary" type="submit" value="Save">
+            Save
+        </button>
+        <button class="btn" type="reset" value="Cancel" onclick="window.location.href='@Url.Action("UserProfile", "Account", new { id = (User.Identity.GetUserId) })'">
+            Cancel
+        </button>
+    }
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.ui-datepicker').each(function (i, v) {
+
+            $(".ui - datepicker").val(" ");
+            //$(v).val($.datepicker.formatDate('dd-M-yy', new Date($(v).val())))
+            $(v).datepicker({
+                dateFormat: 'dd-M-yy',
+                changeYear: true,
+                yearRange: '1950:2010',
+                buttonImageOnly: true,
+                showOn: "button"
+            });
+        });
+    });
+
+</script>

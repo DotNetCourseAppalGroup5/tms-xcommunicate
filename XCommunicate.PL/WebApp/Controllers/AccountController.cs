@@ -16,6 +16,7 @@ namespace WebApp.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
+        private ProfileRepository _profileRepos;
 
         public AccountController()
         {
@@ -367,6 +368,23 @@ namespace WebApp.Controllers
             }
 
             base.Dispose(disposing);
+        }
+
+        [HttpPost]
+        public ActionResult EditProfile(UserProfileViewModel editedProfile)
+        {
+            UserProfile user = Mapper.Map<UserProfileFormModel, UserProfile>(editedProfile);
+            ApplicationUser applicationUser = userService.GetUser(editedProfile.UserId);
+            applicationUser.FirstName = editedProfile.FirstName;
+            applicationUser.LastName = editedProfile.LastName;
+            applicationUser.Email = editedProfile.Email;
+            if (ModelState.IsValid)
+            {
+                userService.UpdateUser(applicationUser);
+                userProfileService.UpdateUserProfile(user);
+                return RedirectToAction("UserProfile", new { id = editedProfile.UserId });
+            }
+            return PartialView("EditProfile", editedProfile);
         }
 
         #region Helpers
