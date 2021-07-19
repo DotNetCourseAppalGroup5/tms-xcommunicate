@@ -8,22 +8,11 @@ body{margin-top:20px;
 background-color: #eee;
 }
 
-
-
-
-
-
-
 .search-result-item {
     padding: 20px;
     background-color: #fff;
     border-radius: 4px
 }
-
-
-
-
-
 
 @@media (min-width:768px) {
     .search-result-item .image-link {
@@ -35,7 +24,6 @@ background-color: #eee;
 
     }
 }
-
 
 
     .search-result-item .image {
@@ -75,6 +63,7 @@ background-color: #eee;
     .search-result-item-heading {
         margin: 0
     }
+
 </style>
 <div class="container">
     <div class="row ng-scope">
@@ -83,20 +72,18 @@ background-color: #eee;
             @foreach (var item in Model)
             {
                 <section class="search-result-item">
-                    <a class="image-link" href="#">
+                    <a class="image-link">
                         <img class="image" src="@Html.DisplayFor(modelItem => item.GroupAvatar)">
                     </a>
                     <div class="search-result-item-body">
                         <div class="row">
-                            <div class="col-sm-9">
-                                <h4 class="search-result-item-heading"> @Html.DisplayFor(modelItem => item.Name)</h4>
+                            <div class="col-sm-9" >
+                                <button class="btn btn-link" onclick="location.href='@Url.Action("ViewGroup","Group", new { id = item.Id})' " > @Html.DisplayFor(modelItem => item.Name) </button>
                                 <p class="info">@Html.DisplayFor(modelItem => item.GroupDescription)</p>
                                 <p class="search-item-text">@Html.DisplayFor(modelItem => item.Size) Subscribers</p>
                             </div>
-                            <div class="col-sm-3 text-align-center">
 
-                                <p class="fs-mini text-muted"></p><a class="btn btn-primary btn-info btn-sm" href="#">Subscribe</a>
-                            </div>
+                            
                         </div>
                     </div>
                 </section>

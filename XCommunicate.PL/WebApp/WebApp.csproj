@@ -45,6 +45,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Eco.Handles, Version=7.0.0.13333, Culture=neutral, PublicKeyToken=46a833be9e90de8c, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EcoCore.7.0.0.13333\lib\net40\Eco.Handles.dll</HintPath>
+    </Reference>
+    <Reference Include="Eco.Interfaces, Version=7.0.0.13333, Culture=neutral, PublicKeyToken=46a833be9e90de8c, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EcoCore.7.0.0.13333\lib\net40\Eco.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Eco.LinqExtender, Version=7.0.0.13333, Culture=neutral, PublicKeyToken=46a833be9e90de8c, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EcoCore.7.0.0.13333\lib\net40\Eco.LinqExtender.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -246,10 +255,12 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Group\Index.cshtml" />
     <Content Include="Views\Group\Details.cshtml" />
-    <Content Include="Views\Group\Create.cshtml" />
     <Content Include="Views\Group\Delete.cshtml" />
     <Content Include="Views\User\Create.cshtml" />
+    <Content Include="Views\Group\ViewGroup.cshtml" />
+    <Content Include="Views\Group\Create.cshtml" />
     <Content Include="Views\Group\Edit.cshtml" />
+    <Content Include="Views\Group\CreatorView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -304,7 +315,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>1078</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>https://localhost:44379/</IISUrl>
+          <IISUrl>https://localhost:44379</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

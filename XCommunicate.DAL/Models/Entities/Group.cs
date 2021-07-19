@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -15,7 +16,7 @@ namespace Models.Entities
         [Required(ErrorMessage = "GroupAvatar is required.")]
         public string GroupAvatar { get; set; }
         public string GroupAvatarFullSize { get; set; }
-        
+        public DateTime CreateGroup { get; set; }
         public bool IsPrivate { get; set; }
 
         //public virtual ICollection<Entity> Entities { get; set; } ???????????

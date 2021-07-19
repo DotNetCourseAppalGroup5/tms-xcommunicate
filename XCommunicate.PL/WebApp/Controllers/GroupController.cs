@@ -1,4 +1,5 @@
 ﻿
+using Eco.ViewModel.Runtime;
 using EntityFramework.CodeFirst;
 
 using Models.Entities;
@@ -7,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Dynamic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -27,8 +29,8 @@ namespace WebApp.Controllers
 
         public ActionResult Index()
         {
-            var companies = _groupRepository.GetAll();
-            return View(companies);
+            var groups = _groupRepository.GetAll();
+            return View(groups);
         }
 
         public ViewResult Details(int id)
@@ -106,13 +108,41 @@ namespace WebApp.Controllers
             _groupRepository.Delete(id);
             return RedirectToAction("Index");
         }
-        //public void CountUserAdd(User user)
+
+        [HttpPost]
+        public ActionResult MultipleButton(GroupUser groupUser,string submit)// проверить вступление
+        {
+            var id = groupUser.UserId;
+            var group = _dbContext.Groups.Find(id);
+            group.Size++;
+            _dbContext.Entry(group).State = EntityState.Modified;
+            _dbContext.SaveChanges();
+           
+            return View("Index");
+        }
+        public ActionResult ViewGroup(int id)
+        {
+            Group group = _groupRepository.GetById(id);
+            return View(group);
+
+        }
+        //public ActionResult ViewSubscribers(int id)
         //{
-        //    var id = user.Id;
-        //    var group = _dbContext.Groups.Find(id);
-        //    group.Size++;
-        //    _dbContext.Entry(group).State = EntityState.Modified;
-        //    _dbContext.SaveChanges();
+        //    //Group group = _groupRepository.GetById(id);
+        //    //GroupUser user = _userReposiory.GetById
+        //    //    if(id == user.UserId)
+        //    //{
+
+        //    //}
+        //    //return View(group);
+
         //}
+
+        public ActionResult CreatorView(int id)
+        {
+
+            Group group = _groupRepository.GetById(id);
+            return View(group);
+        }
     }
 }
