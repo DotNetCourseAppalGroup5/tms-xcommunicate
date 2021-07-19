@@ -5,7 +5,7 @@
     ViewBag.Title = "Code confirmation";
 }
 
-<h2>@ViewBag.Title.</h2>
+<h2>@ViewBag.Title</h2>
 <div class="row">
     <div class="col-md-8">
         <section id="loginForm">
@@ -15,14 +15,14 @@
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 <div class="form-group">
                     @Html.LabelFor(m => m.Code, new { @class = "col-md-2 control-label" })
-                    <div class="col-md-10">
+                    <div class="col-md-5">
                         @Html.TextBoxFor(m => m.Code, new { @class = "form-control" })
                         @Html.ValidationMessageFor(m => m.Code, "", new { @class = "text-danger" })
                     </div>
                 </div>
-                <div class="form-group">
-                    <div class="col-md-offset-2 col-md-10">
-                        <input type="submit" value="Log in" class="btn btn-default" />
+                <div class="form-group" style="margin-top : 1%">
+                    <div class="btn btn-primary" style="background-color : #0d6efd">
+                        <input type="submit" class="btn btn-default" style="color : white" value="Log In" />
                     </div>
                 </div>
             }

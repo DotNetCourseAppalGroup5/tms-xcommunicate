@@ -6,7 +6,7 @@ namespace Services.Validators
     {
         public ObsceneWordsValidator() { }
 
-        private string[] ObsceneWordsArray = new string[] { "fuck", "shit", "nigger", "niger", "whore", "slut", "bitch", "gay", "asshole", "jerk", "stupid", "dick", "pussy" };
+        private string[] ObsceneWordsArray = new string[] { "ass", "fuck", "shit", "nigger", "niger", "whore", "slut", "bitch", "gay", "asshole", "jerk", "stupid", "dick", "pussy" };
 
         public override bool IsValid(object value)
         {
