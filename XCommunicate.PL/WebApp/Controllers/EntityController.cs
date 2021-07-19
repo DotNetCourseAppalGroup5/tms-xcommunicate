@@ -7,7 +7,7 @@ using System.Data;
 using System.Data.Entity;
 using Models.Entities;
 using Repositories.Repos;
-
+using Microsoft.AspNet.Identity;
 
 namespace WebApp.Controllers
 {
@@ -17,7 +17,38 @@ namespace WebApp.Controllers
         private ApplicationContext _dbContext;
         private EntityRepository _entityRepository = new EntityRepository(new DataProvider.ApplicationContext());
 
+        private LikeRepository _likeRepository = new LikeRepository(new DataProvider.ApplicationContext());
+
         int groupId = 1;
+
+        [HttpGet]
+        public ActionResult ResultLike(int id, int UserId)
+        {
+
+            Like myLike = new Like { UserId = 1, EntityId = 1 };
+            _likeRepository.AddEntity(myLike);
+
+            var userID = User.Identity.GetUserId();
+
+            if (_likeRepository != null)
+            {
+                var result = _likeRepository.GetAll();
+                var likeOperation = result.FirstOrDefault(e => e.UserId == UserId && e.EntityId == id);
+                if (likeOperation != null)
+                {
+                    _likeRepository.DeleteEntityLike(likeOperation.UserId, likeOperation.EntityId);
+                }
+
+                else
+                {
+                    Like like = new Like() { UserId = UserId, EntityId = id };
+                    _likeRepository.AddEntity(like);
+                }
+            }
+
+            return RedirectToAction("ViewAllPosts");
+
+        }
 
         public ActionResult AddPost()
         {
@@ -90,5 +121,7 @@ namespace WebApp.Controllers
 
             return RedirectToAction("ViewAllPosts");
         }
+
+
     }
 }

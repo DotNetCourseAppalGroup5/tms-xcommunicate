@@ -42,7 +42,11 @@ namespace DataProvider
 
             context.Entity.Add(entity1);
             context.Entity.Add(entity2);
-            
+
+            User myuser = new User() { Name = "Vadim", IsActive = true, Password = "31121988Vadimka", EmailAddress = "vadimbezhkov3112@gmail.com" };
+            context.Users.Add(myuser);
+
+
             // saving changes in DB
             context.SaveChanges();
 

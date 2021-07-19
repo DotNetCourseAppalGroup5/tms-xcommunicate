@@ -18,5 +18,7 @@ namespace DataProvider
         public DbSet<GroupRole> GroupRoles { get; set; }
         public DbSet<UserState> UserStates { get; set; }
         public DbSet<Group> Companies { get; set; }
+        public DbSet<Like> Likes { get; set; }
+        public DbSet<User> Users { get; set; }
     }
 }
