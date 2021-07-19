@@ -256,7 +256,7 @@
         <div class="content-item-header news-header">
         </div>
         <input type="hidden" value="@i.Id" name="Id" />
-        <input type="hidden" value="@ViewBag.UserId" name="UserId" />
+        <input type="hidden" value="@i.UserId" name="UserId" />
         <p>
             Author: @i.UserId      Date of Post: @i.UploadedAt
         </p>
@@ -265,7 +265,7 @@
                 @i.Content
             </p>
             <p>
-                <button class="button-Like" onclick="document.location='/Entity/ResultLike/@i.Id'">Like</button>
+                <button class="button-Like" onclick="document.location='/Entity/ResultLike?id=@i.Id&UserId=@i.UserId'">Like</button>
                 <button class="button-Comment">Comment</button>
                 <button class="button-Edit" onclick="document.location='/Entity/EditPost/@i.Id'">Edit</button>
                 <button class="button-Edit" onclick="document.location='/Entity/DeletePost/@i.Id'">Delete</button>

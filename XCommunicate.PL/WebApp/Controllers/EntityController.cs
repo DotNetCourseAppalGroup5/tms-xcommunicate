@@ -22,13 +22,12 @@ namespace WebApp.Controllers
         int groupId = 1;
 
         [HttpGet]
-        public ActionResult ResultLike(int id, int UserId)
+        public ActionResult ResultLike(int id,int UserId)
         {
+            //Like myLike = new Like { UserId = 1, EntityId = 1 };
+            //_likeRepository.AddEntity(myLike);
 
-            Like myLike = new Like { UserId = 1, EntityId = 1 };
-            _likeRepository.AddEntity(myLike);
-
-            var userID = User.Identity.GetUserId();
+            //var userID = User.Identity.GetUserId();
 
             if (_likeRepository != null)
             {
