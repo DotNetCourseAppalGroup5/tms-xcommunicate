@@ -264,7 +264,7 @@
                     @i.Content
                 </p>
                 <p>
-                    <button class="button-Like">Like</button>
+                    <button class="button-Like" onclick="document.location='/Entity/ResultLike?id=@i.Id&UserId=@i.UserId'">Like</button>
                     <button class="button-Comment">Comment</button>
                     <button class="button-Edit" onclick="document.location='/Entity/EditPost/@i.Id'">Edit</button>
                     <button class="button-Edit" onclick="document.location='/Entity/DeletePost/@i.Id'">Delete</button>
