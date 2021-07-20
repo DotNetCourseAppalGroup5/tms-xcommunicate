@@ -1,7 +1,7 @@
 ﻿
 using Eco.ViewModel.Runtime;
 using EntityFramework.CodeFirst;
-
+using Microsoft.AspNet.SignalR;
 using Models.Entities;
 using Repositories.IGenericRepository;
 using System;
@@ -10,6 +10,7 @@ using System.Data;
 using System.Data.Entity;
 using System.Dynamic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 
@@ -45,7 +46,7 @@ namespace WebApp.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create(Group group, User user)
+        public ActionResult Create(Group group)
         {
             try
             {
@@ -128,21 +129,28 @@ namespace WebApp.Controllers
         }
         //public ActionResult ViewSubscribers(int id)
         //{
-        //    //Group group = _groupRepository.GetById(id);
-        //    //GroupUser user = _userReposiory.GetById
-        //    //    if(id == user.UserId)
-        //    //{
+            
+        //    CountSubscribeAdd(id);
+        //    return RedirectToAction("ViewGroup");
 
-        //    //}
-        //    //return View(group);
-
+        //}
+        //public void CountSubscribeAdd(int id)
+        //{
+        //    Group group = _groupRepository.GetById(id);
+        //    group.Size++;
+        //    _dbContext.Entry(group).State = EntityState.Modified;
+        //    _dbContext.SaveChanges();
         //}
 
         public ActionResult CreatorView(int id)
         {
-
             Group group = _groupRepository.GetById(id);
             return View(group);
+            return RedirectToAction("CreatorView");
+
+           
         }
     }
+    
+
 }

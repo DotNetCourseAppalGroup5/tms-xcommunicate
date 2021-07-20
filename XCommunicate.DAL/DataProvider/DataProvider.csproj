@@ -74,25 +74,9 @@
   <ItemGroup>
     <Compile Include="ApplicationContext.cs" />
     <Compile Include="Entities\BaseEntity.cs" />
-    <Compile Include="Migrations\202107161528354_v1.cs" />
-    <Compile Include="Migrations\202107161528354_v1.designer.cs">
-      <DependentUpon>202107161528354_v1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202107161555311_addSize.cs" />
-    <Compile Include="Migrations\202107161555311_addSize.designer.cs">
-      <DependentUpon>202107161555311_addSize.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202107161727489_addSize1.cs" />
-    <Compile Include="Migrations\202107161727489_addSize1.designer.cs">
-      <DependentUpon>202107161727489_addSize1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202107172059011_creteDate.cs" />
-    <Compile Include="Migrations\202107172059011_creteDate.designer.cs">
-      <DependentUpon>202107172059011_creteDate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202107182047398_v123.cs" />
-    <Compile Include="Migrations\202107182047398_v123.designer.cs">
-      <DependentUpon>202107182047398_v123.cs</DependentUpon>
+    <Compile Include="Migrations\202107192145133_v01.cs" />
+    <Compile Include="Migrations\202107192145133_v01.designer.cs">
+      <DependentUpon>202107192145133_v01.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -108,20 +92,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202107161528354_v1.resx">
-      <DependentUpon>202107161528354_v1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202107161555311_addSize.resx">
-      <DependentUpon>202107161555311_addSize.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202107161727489_addSize1.resx">
-      <DependentUpon>202107161727489_addSize1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202107172059011_creteDate.resx">
-      <DependentUpon>202107172059011_creteDate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202107182047398_v123.resx">
-      <DependentUpon>202107182047398_v123.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202107192145133_v01.resx">
+      <DependentUpon>202107192145133_v01.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
