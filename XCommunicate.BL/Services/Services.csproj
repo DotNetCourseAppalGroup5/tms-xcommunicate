@@ -60,7 +60,6 @@
     <Compile Include="Services\EntityService.cs" />
     <Compile Include="Services\GroupService.cs" />
     <Compile Include="Services\GroupUserService.cs" />
-    <Compile Include="Services\LikeService.cs" />
     <Compile Include="Services\MessageService.cs" />
     <Compile Include="Services\UserService.cs" />
   </ItemGroup>
