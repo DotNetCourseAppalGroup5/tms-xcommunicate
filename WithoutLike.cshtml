@@ -2,81 +2,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="styles/style.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
     <title>Document</title>
-    <style>
-        #main {
-            position: fixed; /* Фиксированное положение */
-            left: 0;
-            bottom: 0; /* Левый нижний угол */
-            padding: 10px; /* Поля вокруг текста */
-            background: #39b54a; /* Цвет фона */
-            color: #fff; /* Цвет текста */
-            width: 100%; /* Ширина слоя */
-        }
-
-        .posts {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-evenly;
-            align-items: flex-start;
-            flex-wrap: wrap;
-            width: 100%;
-        }
-
-        .post-item {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            align-items: center;
-            width: 480px;
-            height: 360px;
-            border: 1px solid #ccc;
-            margin: 20px 0;
-            border-radius: 10px;
-            transition: 0.3s;
-        }
-
-            .post-item:hover {
-                cursor: pointer;
-                box-shadow: 1px 2px 0 0 #e3e3e3;
-                transition: 0.3s;
-            }
-
-        .post-item-header {
-            background-color: gold;
-            text-align: center;
-            width: 100%;
-            font-size: 14px;
-            padding: 10px 0;
-            border-top-left-radius: 10px;
-            border-top-right-radius: 10px;
-            border-bottom: 1px solid #ccc;
-        }
-
-        .post-item-text {
-            text-align: center;
-            font-size: 14px;
-        }
-
-        .post-item-buttons {
-            display: flex;
-            justify-content: space-evenly;
-            align-items: center;
-            border-top: 1px solid #ccc;
-            width: 100%;
-            padding: 10px 0;
-        }
-
-        .post-item-button {
-            border: none;
-            background: none;
-        }
-
-            .post-item-button:hover {
-                cursor: pointer;
-            }
-    </style>
+    
 </head>
 <body>
     <div class="posts">
