@@ -34,15 +34,20 @@ namespace DataProvider
             Group group1 = new Group { Name = "ЗДАРОВА БАНДИТЫ", GroupDescription = "Тупа чилим с Жорой и Витямбой", IsPrivate = false };
             context.Companies.Add(group1);
 
+            User myuser = new User() { Name = "Vadim", IsActive = true, Password = "31121988Vadimka", EmailAddress = "vadimbezhkov3112@gmail.com" };
+            context.Users.Add(myuser);
+
             context.SaveChanges();
 
             //
-            Entity entity1 = new Entity { EntityTypeId = 1, UploadedAt = DateTime.Now, Content = "Раз два три", EntityParentId = 1, ParentGroupId = 1 };
-            Entity entity2 = new Entity { EntityTypeId = 1, UploadedAt = DateTime.Now, Content = "првоаровр овоарповарповла воапрволарповарлп ваопр ловар п", EntityParentId = 1, ParentGroupId = 1 };
+            Entity entity1 = new Entity { EntityTypeId = 1, UploadedAt = DateTime.Now, Content = "Раз два три", EntityParentId = 1, ParentGroupId = 1,UserId=1 };
+            Entity entity2 = new Entity { EntityTypeId = 1, UploadedAt = DateTime.Now, Content = "првоаровр овоарповарповла воапрволарповарлп ваопр ловар п", EntityParentId = 1, ParentGroupId = 1, UserId=1 };
 
             context.Entity.Add(entity1);
             context.Entity.Add(entity2);
-            
+
+
+
             // saving changes in DB
             context.SaveChanges();
 
