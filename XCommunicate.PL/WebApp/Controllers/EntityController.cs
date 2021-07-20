@@ -7,7 +7,7 @@ using System.Data;
 using System.Data.Entity;
 using Models.Entities;
 using Repositories.Repos;
-
+using Services.Services;
 
 namespace WebApp.Controllers
 {
@@ -16,11 +16,40 @@ namespace WebApp.Controllers
 
         private ApplicationContext _dbContext;
         private EntityRepository _entityRepository = new EntityRepository(new DataProvider.ApplicationContext());
+        private LikeRepository _likeRepository = new LikeRepository(new DataProvider.ApplicationContext());
 
         [HttpGet]
         public ActionResult AddPost()
         {
             return View();
+        }
+
+        [HttpGet]
+        public ActionResult ResultLike(int id, int UserId)
+        {
+            //Like myLike = new Like { UserId = 1, EntityId = 1 };
+            //_likeRepository.AddEntity(myLike);
+
+            //var userID = User.Identity.GetUserId();
+
+            if (_likeRepository != null)
+            {
+                var result = _likeRepository.GetAll();
+                var likeOperation = result.FirstOrDefault(e => e.UserId == UserId && e.EntityId == id);
+                if (likeOperation != null)
+                {
+                    _likeRepository.DeleteEntityLike(likeOperation.UserId, likeOperation.EntityId);
+
+                }
+
+                else
+                {
+                    Like like = new Like() { UserId = UserId, EntityId = id };
+                    _likeRepository.AddEntity(like);
+                }
+            }
+
+            return RedirectToAction("ViewAllPosts");
         }
 
         [HttpPost]
@@ -45,6 +74,31 @@ namespace WebApp.Controllers
             ViewBag.PostsToShow = postsToShow;
 
             return View();
+        }
+
+        [HttpGet]
+        public ActionResult ViewAllPostsTest()
+        {
+            var postsToShow = _entityRepository.GetAllForGroup(1);
+
+            ViewBag.PostsToShow = postsToShow;
+
+            return View();
+        }
+
+        private ActionResult ViewPost(Entity entity)
+        {
+            EntityService entityService = new EntityService();
+            bool isLiked = entityService.EntityHasCurrentUserLike(entity.Id);
+
+            ViewBag.IsLiked = isLiked;
+            
+            ViewBag.EntityId = entity.Id;
+            ViewBag.UserId = entity.UserId;
+            ViewBag.UpdatedAt = entity.UpdatedAt;
+            ViewBag.Content = entity.Content;
+
+            return PartialView(entity);
         }
 
         [HttpGet]

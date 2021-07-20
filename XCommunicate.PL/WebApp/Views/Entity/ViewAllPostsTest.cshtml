@@ -1,9 +1,10 @@
-﻿@model Models.Entities.Entity
+﻿@using Models.Entities
 
+@model Models.Entities.Entity
 
 @{
     Layout = null;
-    ViewBag.Title = "ViewAllPosts";
+    ViewBag.Title = "ViewAllPostsTest";
 }
 
 <!DOCTYPE html>
@@ -246,32 +247,9 @@
     <title>TimkedIN</title>
 </head>
 <body>
-    @Html.AntiForgeryToken()
-
-    @foreach (var i in ViewBag.PostsToShow)
+    @foreach (var post in ViewBag.PostsToShow)
     {
-        <div class="content-item" style="border:3px  #ccc  solid;">
-            @Html.HiddenFor(p => p.Id)
-            
-            <p>
-                Author: @i.UserId
-                (Date of Post: @i.UploadedAt)
-                @(@i.UpdatedAt != null ? "(edited)" : "")
-                Likes: @i.Likes.Count
-            </p>
-
-            <div>
-                <p>
-                    @i.Content
-                </p>
-                <p>
-                    <button class="button-Like" onclick="document.location='/Entity/ResultLike?id=@i.Id&UserId=@i.UserId'">Like</button>
-                    <button class="button-Comment">Comment</button>
-                    <button class="button-Edit" onclick="document.location='/Entity/EditPost/@i.Id'">Edit</button>
-                    <button class="button-Edit" onclick="document.location='/Entity/DeletePost/@i.Id'">Delete</button>
-                </p>
-            </div>
-        </div>
+        Html.RenderPartial("ViewPost");
     }
 </body>
 </html>

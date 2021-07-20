@@ -242,6 +242,8 @@
     <Content Include="Views\Entity\ViewAllPosts.cshtml" />
     <Content Include="Views\Entity\EditPost.cshtml" />
     <Content Include="Views\Entity\DeletePost.cshtml" />
+    <Content Include="Views\Entity\ViewPost.cshtml" />
+    <Content Include="Views\Entity\ViewAllPostsTest.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -260,6 +262,10 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\XCommunicate.BL\Services\Services.csproj">
+      <Project>{96fdfcf6-cf89-41a3-8720-064f8d193f80}</Project>
+      <Name>Services</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\XCommunicate.DAL\DataProvider\DataProvider.csproj">
       <Project>{950009D1-1740-4C92-9FDA-0894026BE034}</Project>
       <Name>DataProvider</Name>

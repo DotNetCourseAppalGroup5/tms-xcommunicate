@@ -1,0 +1,30 @@
+﻿@model Models.Entities.Entity
+
+@Html.AntiForgeryToken()
+
+<div class="content-item" style="border:3px  #ccc  solid;">
+    @Html.HiddenFor(p => p.Id)
+
+    <p>
+        Author: @Html.DisplayFor(p => p.UserId)
+        (Date of Post: @Html.DisplayFor(p => p.UploadedAt)
+        @(@ViewBag.UpdatedAt ?? false ? "(edited)" : "")
+        Likes: @Html.DisplayFor(p => p.Likes.Count)
+    </p>
+
+    <div>
+        <p>
+            @Html.DisplayFor(p => p.Content)
+        </p>
+        <p>
+            <button class="button-Like"
+                    onclick="document.location='/Entity/ResultLike?id=@ViewBag.EntityId&UserId=@ViewBag.UserId'"
+                    value=@(ViewBag.IsLiked ? "Поставить лайк" : "Снять лайк")>
+            </button>
+            <button class="button-Comment">Comment</button>
+            <button class="button-Edit" onclick="document.location='/Entity/EditPost/@ViewBag.EntityId'">Edit</button>
+            <button class="button-Edit" onclick="document.location='/Entity/DeletePost/@ViewBag.EntityId'">Delete</button>
+        </p>
+    </div>
+</div>
+
