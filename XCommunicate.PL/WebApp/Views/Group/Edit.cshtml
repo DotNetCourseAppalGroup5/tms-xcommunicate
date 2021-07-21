@@ -4,15 +4,57 @@
     ViewBag.Title = "Edit";
 }
 
-<h2>Edit</h2>
+<style>
+    .header-h1 h1 {
+        position: relative;
+        padding-bottom: .5rem;
+        font-size: 1.5rem;
+        text-transform: uppercase;
+        text-align: center;
+        color: #FFA500;
+    }
 
+        .header-h1 h1::before {
+            content: "";
+            position: absolute;
+            border-bottom: 2px solid #FFA500;
+            bottom: .25rem;
+            left: 60%;
+            width: 30%;
+            transform: translateX(-50%);
+        }
+
+        .header-h1 h1::after {
+            content: "";
+            position: absolute;
+            border-bottom: 2px solid #FFA500;
+            bottom: 0;
+            left: 50%;
+            width: 15%;
+            transform: translateX(-50%);
+        }
+
+    .header-h1-left h1 {
+        text-align: left;
+    }
+
+        .header-h1-left h1::before,
+        .header-h1-left h1::after {
+            left: 0;
+            transform: translateX(0);
+        }
+</style>
+<div class="header-h1 header-h1-left">
+    <h1>EDIT GROUP</h1>
+    <h3></h3>
+    <h4>@Model.Name</h4>
+</div>
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
-        <h4>Group</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.Id)
@@ -77,14 +119,14 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+                <input type="submit" value="Save" class="btn btn-success" />
             </div>
         </div>
     </div>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to Group", "CreatorView", new { id = Model.Id })
 </div>
 
 @section Scripts {

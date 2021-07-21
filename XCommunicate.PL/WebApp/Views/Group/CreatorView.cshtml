@@ -10,8 +10,11 @@
 
 
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-<div>
-    <div class="col-lg-10 col-md-pull-4">
+
+<section>
+
+    <div class="jumbotron">
+
 
         <article>
             <imgStart>
@@ -23,7 +26,7 @@
                     <li class="list-inline-item">
                         <i class="fa fa-user-circle-o"></i>
                         NAme Creator
-
+                            
 
                     </li>
                     <li class="list-inline-item">
@@ -43,89 +46,92 @@
 
                 <p class="textInfo">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, </p>
 
-                <hr class="mb40">
-                <h4 class="textPost">Posts</h4>
-                <hr class="mb40">
-                <ul class="timeline">
+                <div class="col-md-6 col-sm-12">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-xs-4"><a href="#" class="btn btn-warning center-block" onclick="location.href='@Url.Action("Edit","Group", new { id = Model.Id})' ">Edit</a></div>
+                                <div class="col-xs-4"><a href="#" class="btn btn-warning center-block" onclick="location.href='@Url.Action("Details","Group", new { id = Model.Id})' ">Details</a></div>
+                                <div class="col-xs-4"><a href="#" class="btn btn-danger center-block" onclick="location.href='@Url.Action("Delete","Group", new { id = Model.Id})' ">Delete</a></div>
 
-                    <li style="list-style:none">
+                            </div>
 
-                        <div class="timeline-body">
-                            <div class="timeline-header">
-                                <span class="userimage"><img src="https://i.picsum.photos/id/974/200/200.jpg?hmac=3skiM35hn9GtUF77ruZWI1mTtIROBBhkDIOmGwS7kpY" alt=""></span>
-                                <span class="username">Name Author</span>
-                            </div>
-                            <div class="timeline-content">
-                                <p class="lead">
-                                    <i class="fa fa-quote-left fa-fw pull-left"></i>
-                                    Quisque sed varius nisl. Nulla facilisi. Phasellus consequat sapien sit amet nibh molestie placerat. Donec nulla quam, ullamcorper ut velit vitae, lobortis condimentum magna. Suspendisse mollis in sem vel mollis.
-                                    <i class="fa fa-quote-right fa-fw pull-right"></i>
-                                </p>
-                            </div>
-                            <div class="timeline-footer">
-                                <a href="javascript:;" class="m-r-15 text-inverse-lighter"><i class="fa fa-thumbs-up fa-fw fa-lg m-r-3"></i> Like</a>
-                                <a href="javascript:;" class="m-r-15 text-inverse-lighter"><i class="fa fa-comments fa-fw fa-lg m-r-3"></i> Comment</a>
-                                <a href="javascript:;" class="m-r-15 text-inverse-lighter"><i class="fa fa-share fa-fw fa-lg m-r-3"></i> Share</a>
-                            </div>
+
                         </div>
-
-                    </li>
-
-                </ul>
-                <ul class="timeline">
-
-                    <li style="list-style:none">
-                        <div class="timeline-body">
-                            <div class="timeline-header">
-                                <span class="userimage"><img src="https://i.picsum.photos/id/974/200/200.jpg?hmac=3skiM35hn9GtUF77ruZWI1mTtIROBBhkDIOmGwS7kpY" alt=""></span>
-                                <span class="username">Name Author</span>
-                            </div>
-                            <div class="timeline-content">
-                                <p class="lead">
-                                    <i class="fa fa-quote-left fa-fw pull-left"></i>
-                                    Quisque sed varius nisl. Nulla facilisi. Phasellus consequat sapien sit amet nibh molestie placerat. Donec nulla quam, ullamcorper ut velit vitae, lobortis condimentum magna. Suspendisse mollis in sem vel mollis.
-                                    <i class="fa fa-quote-right fa-fw pull-right"></i>
-                                </p>
-                            </div>
-                            <div class="timeline-footer">
-                                <a href="javascript:;" class="m-r-15 text-inverse-lighter"><i class="fa fa-thumbs-up fa-fw fa-lg m-r-3"></i> Like</a>
-                                <a href="javascript:;" class="m-r-15 text-inverse-lighter"><i class="fa fa-comments fa-fw fa-lg m-r-3"></i> Comment</a>
-                                <a href="javascript:;" class="m-r-15 text-inverse-lighter"><i class="fa fa-share fa-fw fa-lg m-r-3"></i> Share</a>
-                            </div>
-                        </div>
-
-                    </li>
-
-                </ul>
-                <div class="form-group">
-                    <div class="col-md-offset-2 col-md-10">
-                        <input type="submit" value="Create" class="btn btn-default" />
                     </div>
                 </div>
+
+                <hr class="mb40">
+                <hr class="mb40">
+                <hr class="mb40">
+                <hr class="mb40">
+                <h4 class="textPost">Posts</h4>
+
+                <ul class="timeline">
+
+                    <li style="list-style:none">
+
+                        <div class="timeline-body">
+                            <div class="timeline-header">
+                                <span class="userimage"><img src="https://i.picsum.photos/id/974/200/200.jpg?hmac=3skiM35hn9GtUF77ruZWI1mTtIROBBhkDIOmGwS7kpY" alt=""></span>
+                                <span class="username">Name Author</span>
+                            </div>
+                            <div class="timeline-content">
+                                <p class="lead">
+                                    <i class="fa fa-quote-left fa-fw pull-left"></i>
+                                    Quisque sed varius nisl. Nulla facilisi. Phasellus consequat sapien sit amet nibh molestie placerat. Donec nulla quam, ullamcorper ut velit vitae, lobortis condimentum magna. Suspendisse mollis in sem vel mollis.
+                                    <i class="fa fa-quote-right fa-fw pull-right"></i>
+                                </p>
+                            </div>
+                            <div class="timeline-footer">
+                                <a href="javascript:;" class="m-r-15 text-inverse-lighter"><i class="fa fa-thumbs-up fa-fw fa-lg m-r-3"></i> Like</a>
+                                <a href="javascript:;" class="m-r-15 text-inverse-lighter"><i class="fa fa-comments fa-fw fa-lg m-r-3"></i> Comment</a>
+                                <a href="javascript:;" class="m-r-15 text-inverse-lighter"><i class="fa fa-share fa-fw fa-lg m-r-3"></i> Share</a>
+                            </div>
+                        </div>
+
+                    </li>
+
+                </ul>
+                <ul class="timeline">
+
+                    <li style="list-style:none">
+                        <div class="timeline-body">
+                            <div class="timeline-header">
+                                <span class="userimage"><img src="https://i.picsum.photos/id/974/200/200.jpg?hmac=3skiM35hn9GtUF77ruZWI1mTtIROBBhkDIOmGwS7kpY" alt=""></span>
+                                <span class="username">Name Author</span>
+                            </div>
+                            <div class="timeline-content">
+                                <p class="lead">
+                                    <i class="fa fa-quote-left fa-fw pull-left"></i>
+                                    Quisque sed varius nisl. Nulla facilisi. Phasellus consequat sapien sit amet nibh molestie placerat. Donec nulla quam, ullamcorper ut velit vitae, lobortis condimentum magna. Suspendisse mollis in sem vel mollis.
+                                    <i class="fa fa-quote-right fa-fw pull-right"></i>
+                                </p>
+                            </div>
+                            <div class="timeline-footer">
+                                <a href="javascript:;" class="m-r-15 text-inverse-lighter"><i class="fa fa-thumbs-up fa-fw fa-lg m-r-3"></i> Like</a>
+                                <a href="javascript:;" class="m-r-15 text-inverse-lighter"><i class="fa fa-comments fa-fw fa-lg m-r-3"></i> Comment</a>
+                                <a href="javascript:;" class="m-r-15 text-inverse-lighter"><i class="fa fa-share fa-fw fa-lg m-r-3"></i> Share</a>
+                            </div>
+                        </div>
+
+                    </li>
+
+                </ul>
+
             </div>
         </article>
+
+
     </div>
 
-</div>
-
-
-<div>
+</section>
 
 
 
+<aside>
 
-    <hr class="mb40">
-    <button class="btn btn-link" onclick="location.href='@Url.Action("Create","Group", new { id = Model.Id})' "> Create </button>
-    <button class="btn btn-link" onclick="location.href='@Url.Action("Edit","Group", new { id = Model.Id})' "> Edit </button>
-
-    <button class="btn btn-link" onclick="location.href='@Url.Action("Details","Group", new { id = Model.Id})' "> Details </button>
-    <button class="btn btn-link" onclick="location.href='@Url.Action("Details","Delete", new { id = Model.Id})' "> Delete </button>
-
-
-    <hr class="mb30">
-
-
-    <div class="d-flex align-items-start">
+    <div class="left">
         <button class="btn btn-link" onclick="location.href=#">  <h4 class="textPost">Subscribers</h4> </button>
 
         <hr class="mb30">
@@ -145,7 +151,17 @@
             </li>
         </ul>
     </div>
-</div>
+
+</aside>
+
+
+
+
+
+
+
+
+
 
 
 <style type="text/css">
@@ -156,6 +172,54 @@
         background: #eee;
     }
 
+
+    code {
+        background: #2db34a;
+        border-radius: 6px;
+        color: #fff;
+        display: block;
+        padding: 24px 15px;
+        text-align: center;
+    }
+
+   
+    section,
+    aside {
+        margin: 0 1.5% 24px 1.5%;
+    }
+
+    section {
+        float: left;
+        width: 63%;
+    }
+
+    aside {
+        float: right;
+        width: 30%;
+    }
+
+    footer {
+        clear: both;
+        margin-bottom: 0;
+    }
+
+    .btn, .form-control, .panel, .list-group, .well {
+        border-radius: 1px;
+        box-shadow: 0 0 0;
+    }
+
+        .panel .panel-heading {
+            background-color: #FFFFFF;
+            border-color: #FFFFFF;
+            color: #262626;
+            font-size: 16px;
+            font-weight: 700;
+        }
+
+            .panel .panel-heading a {
+                font-size: 11px;
+                font-weight: 400;
+            }
 
     .headSize {
         font-weight: 900;

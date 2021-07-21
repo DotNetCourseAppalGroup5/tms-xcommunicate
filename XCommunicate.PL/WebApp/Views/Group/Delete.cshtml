@@ -4,11 +4,52 @@
     ViewBag.Title = "Delete";
 }
 
-<h2>Delete</h2>
+<style>
+    .header-h1 h1 {
+        position: relative;
+        padding-bottom: .5rem;
+        font-size: 1.5rem;
+        text-transform: uppercase;
+        text-align: center;
+        color: #B22222;
+    }
 
-<h3>Are you sure you want to delete this?</h3>
+        .header-h1 h1::before {
+            content: "";
+            position: absolute;
+            border-bottom: 2px solid #B22222;
+            bottom: .25rem;
+            left: 50%;
+            width: 30%;
+            transform: translateX(-50%);
+        }
+
+        .header-h1 h1::after {
+            content: "";
+            position: absolute;
+            border-bottom: 2px solid #B22222;
+            bottom: 0;
+            left: 50%;
+            width: 15%;
+            transform: translateX(-50%);
+        }
+
+    .header-h1-left h1 {
+        text-align: left;
+    }
+
+        .header-h1-left h1::before,
+        .header-h1-left h1::after {
+            left: 0;
+            transform: translateX(0);
+        }
+</style>
+<div class="header-h1 header-h1-left">
+    <h1>DELETE COMPANY</h1>
+</div>
+
+<h4 style="color:darkred">Are you sure you want to fire  @Model.Name?</h4>
 <div>
-    <h4>Group</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -61,12 +102,12 @@
 
     </dl>
 
-    @using (Html.BeginForm()) {
+    @using (Html.BeginForm())
+    {
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+            <input type="submit" value="Delete" class="btn btn-danger" /> 
         </div>
     }
 </div>

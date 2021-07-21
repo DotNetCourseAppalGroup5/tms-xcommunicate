@@ -4,6 +4,8 @@ using EntityFramework.CodeFirst;
 using Microsoft.AspNet.SignalR;
 using Models.Entities;
 using Repositories.IGenericRepository;
+using Repositories.Repositories;
+using Services;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -52,8 +54,8 @@ namespace WebApp.Controllers
             {
                 if (ModelState.IsValid)
                 {
+                  
                     _groupRepository.Add(group);
-                    //CountUserAdd(user);
                     return RedirectToAction("Index");
                 }
             }
@@ -80,6 +82,7 @@ namespace WebApp.Controllers
             {
                 if (ModelState.IsValid)
                 {
+            
                     _groupRepository.Edit(group);
                     return RedirectToAction("Index");
                 }
@@ -110,40 +113,17 @@ namespace WebApp.Controllers
             return RedirectToAction("Index");
         }
 
-        [HttpPost]
-        public ActionResult MultipleButton(GroupUser groupUser,string submit)// проверить вступление
-        {
-            var id = groupUser.UserId;
-            var group = _dbContext.Groups.Find(id);
-            group.Size++;
-            _dbContext.Entry(group).State = EntityState.Modified;
-            _dbContext.SaveChanges();
-           
-            return View("Index");
-        }
         public ActionResult ViewGroup(int id)
         {
+
             Group group = _groupRepository.GetById(id);
             return View(group);
 
         }
-        //public ActionResult ViewSubscribers(int id)
-        //{
-            
-        //    CountSubscribeAdd(id);
-        //    return RedirectToAction("ViewGroup");
-
-        //}
-        //public void CountSubscribeAdd(int id)
-        //{
-        //    Group group = _groupRepository.GetById(id);
-        //    group.Size++;
-        //    _dbContext.Entry(group).State = EntityState.Modified;
-        //    _dbContext.SaveChanges();
-        //}
-
+       
         public ActionResult CreatorView(int id)
         {
+           
             Group group = _groupRepository.GetById(id);
             return View(group);
             return RedirectToAction("CreatorView");

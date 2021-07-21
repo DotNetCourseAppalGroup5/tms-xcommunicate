@@ -16,6 +16,8 @@ namespace Models.Entities
         [Required(ErrorMessage = "GroupAvatar is required.")]
         public string GroupAvatar { get; set; }
         public string GroupAvatarFullSize { get; set; }
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
+
         public DateTime CreateGroup { get; set; }
         public bool IsPrivate { get; set; }
 

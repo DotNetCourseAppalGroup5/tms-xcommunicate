@@ -3,16 +3,56 @@
 @{
     ViewBag.Title = "Create";
 }
+<style>
+    .header-h1 h1 {
+        position: relative;
+        padding-bottom: .5rem;
+        font-size: 1.5rem;
+        text-transform: uppercase;
+        text-align: center;
+        color: #4682B4;
+    }
 
-<h2>Create</h2>
+        .header-h1 h1::before {
+            content: "";
+            position: absolute;
+            border-bottom: 2px solid #4682B4;
+            bottom: .25rem;
+            left: 50%;
+            width: 30%;
+            transform: translateX(-50%);
+        }
+
+        .header-h1 h1::after {
+            content: "";
+            position: absolute;
+            border-bottom: 2px solid #4682B4;
+            bottom: 0;
+            left: 50%;
+            width: 15%;
+            transform: translateX(-50%);
+        }
+
+    .header-h1-left h1 {
+        text-align: left;
+    }
+
+        .header-h1-left h1::before,
+        .header-h1-left h1::after {
+            left: 0;
+            transform: translateX(0);
+        }
+</style>
+<div class="header-h1 header-h1-left">
+    <h1>CREATE NEW GOUP</h1>
+</div>
 
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
-        <h4>Group</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
@@ -75,15 +115,16 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="Create" class="btn btn-success" />
+                <button class="btn btn-warning" onclick="location.href='@Url.Action("Index", "Group")' ">List Groups</button>
+
             </div>
+
         </div>
     </div>
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
